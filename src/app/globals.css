@@ -1,0 +1,262 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #0a0a0a;
+  --nelvo-blue: #214BCE;
+  --nelvo-purple: #6C2BD9;
+  --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Premium Animation Keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes breathing {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Convergence Animation for Hero */
+@keyframes convergeCard {
+  0% {
+    opacity: 0;
+    transform: translate(var(--start-x), var(--start-y)) scale(0.8);
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.1);
+  }
+}
+
+@keyframes dashboardReveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+    filter: blur(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes rotateLayer {
+  0% {
+    transform: rotate(45deg);
+  }
+
+  100% {
+    transform: rotate(405deg);
+  }
+}
+
+/* Utility Classes */
+.animate-fade-in {
+  animation: fadeIn 1s var(--ease-premium) forwards;
+  opacity: 0;
+  /* Ensure initial state is hidden */
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 1s var(--ease-premium) forwards;
+  opacity: 0;
+  /* Ensure initial state is hidden */
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.8s var(--ease-premium) forwards;
+  opacity: 0;
+  /* Ensure initial state is hidden */
+}
+
+.animate-breathing {
+  animation: breathing 8s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Glassmorphism & Wireframe Utilities */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.05);
+}
+
+.wireframe-border {
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.wireframe-bg {
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.text-gradient-premium {
+  background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-brand {
+  background: linear-gradient(135deg, var(--nelvo-blue) 0%, var(--nelvo-purple) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Reveal Animations - Multiple Variants */
+.reveal {
+  transition-property: opacity, transform;
+  will-change: opacity, transform;
+  transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Fade Up (Default) */
+.reveal-fade-up {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.reveal-fade-up.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Fade Left */
+.reveal-fade-left {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.reveal-fade-left.reveal-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Fade Right */
+.reveal-fade-right {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+.reveal-fade-right.reveal-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Scale In */
+.reveal-scale-in {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.reveal-scale-in.reveal-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .reveal,
+  .reveal-fade-up,
+  .reveal-fade-left,
+  .reveal-fade-right,
+  .reveal-scale-in {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
