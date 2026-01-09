@@ -14,7 +14,29 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  // Metadata is handled at the page level for SEO optimization (ja / en)
+  metadataBase: new URL("https://nelvo.co"),
+  title: "NELVO | コミュニティ運営の全体像をひとつの画面に",
+  description:
+    "Discord / Patreon / Stripe / Skool など複数ツールに散らばる運営データを整理・可視化し、意思決定を速くする統合ダッシュボード。",
+  alternates: { canonical: "https://nelvo.co/" },
+  openGraph: {
+    title: "NELVO | コミュニティ運営の全体像をひとつの画面に",
+    description:
+      "複数ツールに散らばる運営データを整理・可視化。意思決定を速くする統合ダッシュボード。",
+    url: "https://nelvo.co/",
+    siteName: "NELVO",
+    locale: "ja_JP",
+    type: "website",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "NELVO" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "NELVO | コミュニティ運営の全体像をひとつの画面に",
+    description:
+      "複数ツールに散らばる運営データを整理・可視化。意思決定を速くする統合ダッシュボード。",
+    images: ["/og.png"],
+  },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({
