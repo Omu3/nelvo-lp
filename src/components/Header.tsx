@@ -5,22 +5,41 @@ import Image from 'next/image';
 import { Button } from './ui/Button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Globe } from 'lucide-react';
+import { getLocalizedPath, getBasePath, getLanguageFromPath } from '@/lib/url';
+import { usePathname, useRouter } from 'next/navigation';
 
 export function Header() {
     const { language, setLanguage, t } = useLanguage();
+    const pathname = usePathname();
+    const router = useRouter();
 
     const formUrl = language === 'ja'
         ? 'https://forms.gle/nwGEboEsGpD84R2u8'
         : 'https://forms.gle/SHyrFNxLrGZM1piU7';
 
     const toggleLanguage = () => {
-        setLanguage(language === 'ja' ? 'en' : 'ja');
+        const newLanguage = language === 'ja' ? 'en' : 'ja';
+        
+        // Cookieを先に更新
+        document.cookie = `language=${newLanguage}; path=/; max-age=31536000`; // 1年
+        
+        // Contextを更新
+        setLanguage(newLanguage);
+        
+        // 現在のパスを取得してベースパスに変換
+        const basePath = getBasePath(pathname);
+        
+        // 新しい言語のURLを生成
+        const newPath = getLocalizedPath(basePath, newLanguage);
+        
+        // URL遷移
+        router.push(newPath);
     };
 
     return (
         <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 sm:px-6 md:px-12 py-4 bg-white/50 backdrop-blur-sm border-b border-transparent transition-all duration-200">
             <div className="flex items-center gap-2">
-                <Link href="/" className="flex items-center gap-2 group">
+                <Link href={getLocalizedPath('/', language)} className="flex items-center gap-2 group">
                     <Image
                         src="/logo.png"
                         alt="NELVO Logo"
@@ -33,21 +52,15 @@ export function Header() {
             </div>
 
             <nav className="hidden md:flex items-center gap-8">
-                <Link href="/features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
-                    {t.header.features}
+                <Link href={getLocalizedPath('/#product', language)} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+                    Product
                 </Link>
-                <Link href="/pricing" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+                <Link href={getLocalizedPath('/#pricing', language)} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
                     {t.header.pricing}
                 </Link>
-                <Link href="/use-cases" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
-                    Use Cases
-                </Link>
-                <Link href="/integrations" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
-                    Integrations
-                </Link>
-                <button disabled className="text-sm font-medium text-gray-400 cursor-not-allowed opacity-60">
+                <span className="text-sm font-medium text-gray-400 cursor-not-allowed opacity-60">
                     {t.header.login}
-                </button>
+                </span>
             </nav>
 
             <div className="flex items-center gap-3 md:gap-4">

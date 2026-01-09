@@ -20,7 +20,22 @@ export const metadata: Metadata = {
     languages: {
       'ja': 'https://nelvo.co/',
       'en': 'https://nelvo.co/en',
+      'x-default': 'https://nelvo.co/',
     },
+  },
+  openGraph: {
+    title: "NELVO - コミュニティ運営を、ひとつの視点に。",
+    description: "コミュニティ運営の全体像をひとつの画面に。NELVOは、複数のツールに散らばった情報を統合し、意思決定を一画面で完結させる運営ダッシュボードです。",
+    url: "https://nelvo.co/",
+    siteName: "NELVO",
+    type: "website",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "NELVO" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "NELVO - コミュニティ運営を、ひとつの視点に。",
+    description: "コミュニティ運営の全体像をひとつの画面に。NELVOは、複数のツールに散らばった情報を統合し、意思決定を一画面で完結させる運営ダッシュボードです。",
+    images: ["/og.png"],
   },
   robots: {
     index: true,

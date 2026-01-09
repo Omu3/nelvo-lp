@@ -32,6 +32,33 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Remove diagonal dotted line pattern for English pages */
+html[lang="en"] body,
+html[lang="en"] main,
+body[data-language="en"],
+main[data-language="en"] {
+  background-image: none !important;
+  background: var(--background) !important;
+  background-color: var(--background) !important;
+}
+
+/* Remove any repeating patterns or diagonal lines from pseudo-elements */
+body[data-language="en"]::before,
+body[data-language="en"]::after,
+main[data-language="en"]::before,
+main[data-language="en"]::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Force white background for English pages */
+body[data-language="en"],
+main[data-language="en"] {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+}
+
 /* Premium Animation Keyframes */
 @keyframes fadeIn {
   from {

@@ -1,24 +1,22 @@
-import { Header } from '@/components/Header';
-import { Footer } from '@/components/Footer';
 import { Metadata } from 'next';
 import { LanguageProvider } from '@/contexts/LanguageContext';
-import { FeaturesPageContent } from './FeaturesPageContent';
+import { FeaturesPageContent } from '@/app/features/FeaturesPageContent';
 
 export const metadata: Metadata = {
   title: "Features - NELVO | Unified Dashboard for Creators & Communities",
   description: "Discover NELVO's powerful features: data integration, member visualization, revenue tracking, and Today view. All your community operations in one unified dashboard.",
   alternates: {
-    canonical: 'https://nelvo.co/features',
+    canonical: 'https://nelvo.co/en/features',
     languages: {
       'ja': 'https://nelvo.co/features',
       'en': 'https://nelvo.co/en/features',
-      'x-default': 'https://nelvo.co/features',
+      'x-default': 'https://nelvo.co/en/features',
     },
   },
   openGraph: {
     title: "Features - NELVO | Unified Dashboard for Creators & Communities",
     description: "Discover NELVO's powerful features: data integration, member visualization, revenue tracking, and Today view. All your community operations in one unified dashboard.",
-    url: "https://nelvo.co/features",
+    url: "https://nelvo.co/en/features",
     siteName: "NELVO",
     type: "website",
     images: [{ url: "/og.png", width: 1200, height: 630, alt: "NELVO Features" }],
@@ -37,7 +35,7 @@ export const metadata: Metadata = {
 
 export default function FeaturesPage() {
   return (
-    <LanguageProvider initialLanguage="ja">
+    <LanguageProvider initialLanguage="en">
       <FeaturesPageContent />
     </LanguageProvider>
   );

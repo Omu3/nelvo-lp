@@ -83,7 +83,7 @@ export function Features() {
     ];
 
     return (
-        <section id="features" className="py-20 md:py-32 bg-gray-50 border-t border-gray-100">
+        <section id="product" className="py-20 md:py-32 bg-gray-50 border-t border-gray-100">
             <div className="container mx-auto px-6 md:px-12">
                 <div className="mb-16 md:mb-24">
                     <Reveal variant="fade-up">

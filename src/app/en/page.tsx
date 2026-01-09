@@ -19,7 +19,22 @@ export const metadata: Metadata = {
         languages: {
             'ja': 'https://nelvo.co/',
             'en': 'https://nelvo.co/en',
+            'x-default': 'https://nelvo.co/en',
         },
+    },
+    openGraph: {
+        title: "NELVO - Community Ops \"Big Picture\" in One View.",
+        description: "Grasp operational info scattered across tools from a single, unified perspective. NELVO is the dashboard that completes your daily checks and decisions in one screen.",
+        url: "https://nelvo.co/en",
+        siteName: "NELVO",
+        type: "website",
+        images: [{ url: "/og.png", width: 1200, height: 630, alt: "NELVO" }],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "NELVO - Community Ops \"Big Picture\" in One View.",
+        description: "Grasp operational info scattered across tools from a single, unified perspective. NELVO is the dashboard that completes your daily checks and decisions in one screen.",
+        images: ["/og.png"],
     },
     robots: {
         index: true,

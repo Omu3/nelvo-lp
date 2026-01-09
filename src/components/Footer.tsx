@@ -2,9 +2,11 @@
 
 import { useLanguage } from '@/contexts/LanguageContext';
 import Image from 'next/image';
+import Link from 'next/link';
+import { getLocalizedPath } from '@/lib/url';
 
 export function Footer() {
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
 
     return (
         <footer className="py-12 md:py-24 bg-white border-t border-gray-100">
@@ -28,14 +30,14 @@ export function Footer() {
                     </div>
 
                     {/* Links */}
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 md:gap-24 w-full md:w-auto">
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 md:gap-12 w-full md:w-auto">
                         {/* Product */}
                         <div className="flex flex-col gap-4">
                             <h4 className="font-bold text-gray-900 text-sm">{t.footer.links.product.title}</h4>
                             {t.footer.links.product.items.map((item: any, index: number) => (
-                                <a key={index} href={item.href} className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
+                                <Link key={index} href={getLocalizedPath(item.href, language)} className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
                                     {item.label}
-                                </a>
+                                </Link>
                             ))}
                         </div>
 
@@ -43,9 +45,9 @@ export function Footer() {
                         <div className="flex flex-col gap-4">
                             <h4 className="font-bold text-gray-900 text-sm">{t.footer.links.resources.title}</h4>
                             {t.footer.links.resources.items.map((item: any, index: number) => (
-                                <a key={index} href={item.href} className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
+                                <Link key={index} href={getLocalizedPath(item.href, language)} className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
                                     {item.label}
-                                </a>
+                                </Link>
                             ))}
                         </div>
 
@@ -53,10 +55,21 @@ export function Footer() {
                         <div className="flex flex-col gap-4">
                             <h4 className="font-bold text-gray-900 text-sm">{t.footer.links.legal.title}</h4>
                             {t.footer.links.legal.items.map((item: any, index: number) => (
-                                <a key={index} href={item.href} className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
+                                <Link key={index} href={getLocalizedPath(item.href, language)} className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
                                     {item.label}
-                                </a>
+                                </Link>
                             ))}
+                        </div>
+
+                        {/* Contact */}
+                        <div className="flex flex-col gap-4">
+                            <h4 className="font-bold text-gray-900 text-sm">{t.footer.links.contact.title}</h4>
+                            <a
+                                href={`mailto:${t.footer.links.contact.email}`}
+                                className="text-sm text-gray-500 hover:text-gray-900 transition-colors"
+                            >
+                                {t.footer.links.contact.email}
+                            </a>
                         </div>
                     </div>
                 </div>

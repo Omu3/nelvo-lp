@@ -16,9 +16,9 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://nelvo.co"),
-  title: "NELVO | コミュニティ運営の全体像をひとつの画面に",
+  title: "NELVO | Unified Dashboard for Creators & Communities",
   description:
-    "Discord / Patreon / Stripe / Skool など複数ツールに散らばる運営データを整理・可視化し、意思決定を速くする統合ダッシュボード。",
+    "NELVO connects Discord, Stripe, Patreon and more into one unified dashboard. Track members, revenue and activity in one place.",
   alternates: { canonical: "https://nelvo.co/" },
   icons: {
     icon: [
@@ -32,20 +32,19 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "NELVO | コミュニティ運営の全体像をひとつの画面に",
+    title: "NELVO | Unified Dashboard for Creators & Communities",
     description:
-      "複数ツールに散らばる運営データを整理・可視化。意思決定を速くする統合ダッシュボード。",
+      "NELVO connects Discord, Stripe, Patreon and more into one unified dashboard. Track members, revenue and activity in one place.",
     url: "https://nelvo.co/",
     siteName: "NELVO",
-    locale: "ja_JP",
     type: "website",
     images: [{ url: "/og.png", width: 1200, height: 630, alt: "NELVO" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "NELVO | コミュニティ運営の全体像をひとつの画面に",
+    title: "NELVO | Unified Dashboard for Creators & Communities",
     description:
-      "複数ツールに散らばる運営データを整理・可視化。意思決定を速くする統合ダッシュボード。",
+      "NELVO connects Discord, Stripe, Patreon and more into one unified dashboard. Track members, revenue and activity in one place.",
     images: ["/og.png"],
   },
   robots: { index: true, follow: true },
