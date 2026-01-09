@@ -1,6 +1,0 @@
-User-agent: *
-Allow: /
-Allow: /en
-Disallow: /api/
-
-Sitemap: https://nelvo.co/sitemap.xml

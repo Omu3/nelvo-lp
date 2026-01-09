@@ -5,8 +5,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: "https://nelvo.co/",
       lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 1,
+      changeFrequency: "weekly",
+      priority: 1.0,
+    },
+    {
+      url: "https://nelvo.co/en",
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 1.0,
     },
   ];
 }
