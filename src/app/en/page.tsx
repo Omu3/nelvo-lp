@@ -15,14 +15,11 @@ export const metadata: Metadata = {
     title: "NELVO - Community Ops \"Big Picture\" in One View.",
     description: "Grasp operational info scattered across tools from a single, unified perspective. NELVO is the dashboard that completes your daily checks and decisions in one screen.",
     alternates: {
-        canonical: 'https://nelvo.co/',
+        canonical: 'https://nelvo.co/en',
         languages: {
             'ja': 'https://nelvo.co/',
             'en': 'https://nelvo.co/en',
         },
-    },
-    icons: {
-        icon: '/favicon.png',
     },
     robots: {
         index: true,

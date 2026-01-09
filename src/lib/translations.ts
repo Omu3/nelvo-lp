@@ -203,8 +203,10 @@ export const translations = {
                 product: {
                     title: "Product",
                     items: [
-                        { label: "Features", href: "/coming-soon" },
-                        { label: "Pricing", href: "#pricing" },
+                        { label: "Features", href: "/features" },
+                        { label: "Pricing", href: "/pricing" },
+                        { label: "Use Cases", href: "/use-cases" },
+                        { label: "Integrations", href: "/integrations" },
                     ]
                 },
                 resources: {
@@ -430,8 +432,10 @@ export const translations = {
                 product: {
                     title: "Product",
                     items: [
-                        { label: "Features", href: "/coming-soon" },
-                        { label: "Pricing", href: "#pricing" },
+                        { label: "Features", href: "/features" },
+                        { label: "Pricing", href: "/pricing" },
+                        { label: "Use Cases", href: "/use-cases" },
+                        { label: "Integrations", href: "/integrations" },
                     ]
                 },
                 resources: {

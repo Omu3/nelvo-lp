@@ -9,6 +9,7 @@ import { FAQ } from '@/components/FAQ';
 import { Security } from '@/components/Security';
 import { Footer } from '@/components/Footer';
 import { Metadata } from 'next';
+import Script from 'next/script';
 import { LanguageProvider } from '@/contexts/LanguageContext';
 
 export const metadata: Metadata = {
@@ -21,19 +22,72 @@ export const metadata: Metadata = {
       'en': 'https://nelvo.co/en',
     },
   },
-  icons: {
-    icon: '/favicon.png',
-  },
   robots: {
     index: true,
     follow: true,
   },
 };
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "サブスクリプションは自由に解約できますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "はい。契約はいつでも自由に変更・キャンセルできます。",
+      },
+    },
+    {
+      "@type": "Question",
+      "name": "どのプラットフォームと連携できますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "主要なコミュニティ運営サービスや決済サービスに対応しています。詳細は設定画面から確認できます。",
+      },
+    },
+    {
+      "@type": "Question",
+      "name": "データの安全性はどう守られていますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "通信はすべて暗号化し、外部に公開されない安全な環境で管理しています。また、連携に使用する認証情報は取得せず、必要最小限のデータのみを扱います。",
+      },
+    },
+    {
+      "@type": "Question",
+      "name": "複数サービスをつないでも動作は重くなりませんか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "バックグラウンド処理で自動集計されるため、通常の利用で動作が重くなる心配はありません。",
+      },
+    },
+    {
+      "@type": "Question",
+      "name": "初めてでも使いこなせますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "設定や操作に関するガイドをご用意しています。必要に応じて簡単なお問い合わせにも対応しています。",
+      },
+    },
+  ],
+};
+
 export default function Home() {
   return (
-    <LanguageProvider initialLanguage="ja">
-      <main className="min-h-screen bg-white selection:bg-purple-100 selection:text-purple-900">
+    <>
+      <Script
+        id="faq-schema"
+        type="application/ld+json"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqSchema),
+        }}
+      />
+      <LanguageProvider initialLanguage="ja">
+        <main className="min-h-screen bg-white selection:bg-purple-100 selection:text-purple-900">
         <Header />
         <Hero />
         <UseCases />
@@ -46,5 +100,6 @@ export default function Home() {
         <Footer />
       </main>
     </LanguageProvider>
+    </>
   );
 }

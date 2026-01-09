@@ -33,11 +33,17 @@ export function Header() {
             </div>
 
             <nav className="hidden md:flex items-center gap-8">
-                <Link href="#features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+                <Link href="/features" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
                     {t.header.features}
                 </Link>
-                <Link href="#pricing" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+                <Link href="/pricing" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
                     {t.header.pricing}
+                </Link>
+                <Link href="/use-cases" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+                    Use Cases
+                </Link>
+                <Link href="/integrations" className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+                    Integrations
                 </Link>
                 <button disabled className="text-sm font-medium text-gray-400 cursor-not-allowed opacity-60">
                     {t.header.login}

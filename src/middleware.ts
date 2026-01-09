@@ -36,8 +36,9 @@ export function middleware(request: NextRequest) {
     }
 
     // 3. Path Consolidation (Suppress 404s by redirecting unknown paths to /)
-    // Allowed paths: "/", "/en"
-    if (pathname !== '/' && pathname !== '/en') {
+    // Allowed paths: "/", "/en", "/features", "/pricing", "/use-cases", "/integrations"
+    const allowedPaths = ['/', '/en', '/features', '/pricing', '/use-cases', '/integrations'];
+    if (!allowedPaths.includes(pathname)) {
         url.pathname = '/';
         return NextResponse.redirect(url.toString(), 301);
     }
