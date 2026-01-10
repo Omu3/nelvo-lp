@@ -35,87 +35,41 @@ export function middleware(request: NextRequest) {
         return NextResponse.redirect(url.toString(), 301);
     }
 
-    // 3. Language routing for SEO pages
-    // 言語情報なしのURL（/features, /pricing等）を適切な言語URLにリダイレクト
-    const seoPages = ['/features', '/pricing', '/use-cases', '/integrations'];
-    const isSeoPage = seoPages.some(page => pathname === page);
-    
-    if (isSeoPage) {
-        // 優先順位: Cookie > Accept-Language > デフォルト（英語）
+    // 3. Language routing for TOP PAGE ONLY (/, /en)
+    // 下層ページではリダイレクトしない（常に200を返す）
+    if (pathname === '/' || pathname === '/en') {
+        // 優先順位: Cookie > Accept-Language > デフォルト（日本語）
         const cookieLang = request.cookies.get('language')?.value;
         const acceptLanguage = request.headers.get('accept-language') || '';
-        const prefersJapanese = acceptLanguage.includes('ja') && !acceptLanguage.includes('en');
+        const prefersEnglish = acceptLanguage.includes('en') && !acceptLanguage.includes('ja');
         
-        let targetLanguage: 'ja' | 'en' = 'en'; // デフォルトは英語
-        if (cookieLang === 'ja' || (prefersJapanese && !cookieLang)) {
-            targetLanguage = 'ja';
-        }
-        
-        // 既に正しい言語URLの場合はリダイレクトしない
-        if (targetLanguage === 'en' && pathname.startsWith('/en/')) {
-            return NextResponse.next();
-        }
-        if (targetLanguage === 'ja' && !pathname.startsWith('/en')) {
-            return NextResponse.next();
+        let targetLanguage: 'ja' | 'en' = 'ja'; // デフォルトは日本語
+        if (cookieLang === 'en' || (prefersEnglish && !cookieLang)) {
+            targetLanguage = 'en';
         }
         
-        // リダイレクト
-        const newPath = targetLanguage === 'en' ? `/en${pathname}` : pathname;
-        url.pathname = newPath;
-        const response = NextResponse.redirect(url.toString(), 301);
-        // Cookieに言語を保存
-        response.cookies.set('language', targetLanguage, { path: '/', maxAge: 31536000 });
-        return response;
-    }
-    
-    // 4. 既に言語プレフィックスがあるURL（/en/...）の整合性チェック
-    // CookieとURLの言語が一致しない場合、Cookieを優先してリダイレクト
-    // 仕様: Cookie優先。Cookieが日本語なら日本語URLへ、英語なら英語URLへ
-    if (pathname.startsWith('/en/')) {
-        const cookieLang = request.cookies.get('language')?.value;
-        // Cookieが日本語の場合、日本語URLへリダイレクト
-        if (cookieLang === 'ja') {
-            const basePath = pathname.replace('/en', '') || '/';
-            url.pathname = basePath;
-            const response = NextResponse.redirect(url.toString(), 301);
-            response.cookies.set('language', 'ja', { path: '/', maxAge: 31536000 });
-            return response;
-        }
-        // Cookieが英語または未設定の場合はそのまま（既に正しい言語URL）
-        return NextResponse.next();
-    }
-    
-    // 5. 日本語URL（/features等、ルート以外）でCookieが英語の場合、英語URLへリダイレクト
-    if (!pathname.startsWith('/en') && pathname !== '/' && pathname !== '/en') {
-        const cookieLang = request.cookies.get('language')?.value;
-        if (cookieLang === 'en') {
-            url.pathname = `/en${pathname}`;
-            const response = NextResponse.redirect(url.toString(), 301);
-            response.cookies.set('language', 'en', { path: '/', maxAge: 31536000 });
-            return response;
-        }
-    }
-    
-    // 6. ルートパス（/ または /en）の整合性チェック
-    if (pathname === '/' || pathname === '/en') {
-        const cookieLang = request.cookies.get('language')?.value;
-        // Cookieが英語で / にいる場合、/en へリダイレクト
-        if (cookieLang === 'en' && pathname === '/') {
-            url.pathname = '/en';
-            const response = NextResponse.redirect(url.toString(), 301);
-            response.cookies.set('language', 'en', { path: '/', maxAge: 31536000 });
-            return response;
-        }
-        // Cookieが日本語で /en にいる場合、/ へリダイレクト
-        if (cookieLang === 'ja' && pathname === '/en') {
+        // Cookieが日本語の場合は / へ、英語の場合は /en へ
+        if (targetLanguage === 'ja' && pathname === '/en') {
             url.pathname = '/';
             const response = NextResponse.redirect(url.toString(), 301);
             response.cookies.set('language', 'ja', { path: '/', maxAge: 31536000 });
             return response;
         }
+        if (targetLanguage === 'en' && pathname === '/') {
+            url.pathname = '/en';
+            const response = NextResponse.redirect(url.toString(), 301);
+            response.cookies.set('language', 'en', { path: '/', maxAge: 31536000 });
+            return response;
+        }
+        
+        // 既に正しい言語URLの場合はそのまま
+        return NextResponse.next();
     }
 
-    // 4. Path Consolidation (Suppress 404s by redirecting unknown paths to /)
+    // 4. 下層ページ（/features, /pricing, /en/features等）は常に200を返す（リダイレクトしない）
+    // SEO上の安定性を優先するため、下層ページでのAccept-Languageリダイレクトは実装しない
+
+    // 5. Path Consolidation (Suppress 404s by redirecting unknown paths to /)
     // Allowed paths: "/", "/en", "/features", "/pricing", "/use-cases", "/integrations", "/faq", "/status", "/privacy-policy", "/terms", etc.
     const allowedPaths = [
         '/', '/en',

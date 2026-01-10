@@ -7,11 +7,11 @@ export const metadata: Metadata = {
   description: "These Terms set forth the conditions for using NELVO. These Terms set forth the conditions for using NELVO (the Service), and users agree to these Terms when using the Service.",
   alternates: {
     canonical: 'https://nelvo.co/en/terms',
-    languages: {
-      'ja': 'https://nelvo.co/terms',
-      'en': 'https://nelvo.co/en/terms',
-      'x-default': 'https://nelvo.co/en/terms',
-    },
+      languages: {
+        'ja': 'https://nelvo.co/terms',
+        'en': 'https://nelvo.co/en/terms',
+        'x-default': 'https://nelvo.co/terms',
+      },
   },
   openGraph: {
     title: "Terms of Service - NELVO | Terms of Service",

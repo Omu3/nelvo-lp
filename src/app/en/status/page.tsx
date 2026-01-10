@@ -7,11 +7,11 @@ export const metadata: Metadata = {
   description: "Check the operational status of NELVO services.",
   alternates: {
     canonical: 'https://nelvo.co/en/status',
-    languages: {
-      'ja': 'https://nelvo.co/status',
-      'en': 'https://nelvo.co/en/status',
-      'x-default': 'https://nelvo.co/en/status',
-    },
+      languages: {
+        'ja': 'https://nelvo.co/status',
+        'en': 'https://nelvo.co/en/status',
+        'x-default': 'https://nelvo.co/status',
+      },
   },
   openGraph: {
     title: "Status - NELVO | Service Status",

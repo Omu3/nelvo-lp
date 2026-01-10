@@ -7,11 +7,11 @@ export const metadata: Metadata = {
   description: "This policy sets forth how NELVO handles personal information. This policy sets forth how NELVO (the Service) handles personal information.",
   alternates: {
     canonical: 'https://nelvo.co/en/privacy-policy',
-    languages: {
-      'ja': 'https://nelvo.co/privacy-policy',
-      'en': 'https://nelvo.co/en/privacy-policy',
-      'x-default': 'https://nelvo.co/en/privacy-policy',
-    },
+      languages: {
+        'ja': 'https://nelvo.co/privacy-policy',
+        'en': 'https://nelvo.co/en/privacy-policy',
+        'x-default': 'https://nelvo.co/privacy-policy',
+      },
   },
   openGraph: {
     title: "Privacy Policy - NELVO | Privacy Policy",

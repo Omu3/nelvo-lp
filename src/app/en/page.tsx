@@ -19,7 +19,7 @@ export const metadata: Metadata = {
         languages: {
             'ja': 'https://nelvo.co/',
             'en': 'https://nelvo.co/en',
-            'x-default': 'https://nelvo.co/en',
+            'x-default': 'https://nelvo.co/',
         },
     },
     openGraph: {

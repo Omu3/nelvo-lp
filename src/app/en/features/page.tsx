@@ -7,11 +7,11 @@ export const metadata: Metadata = {
   description: "Discover NELVO's powerful features: data integration, member visualization, revenue tracking, and Today view. All your community operations in one unified dashboard.",
   alternates: {
     canonical: 'https://nelvo.co/en/features',
-    languages: {
-      'ja': 'https://nelvo.co/features',
-      'en': 'https://nelvo.co/en/features',
-      'x-default': 'https://nelvo.co/en/features',
-    },
+      languages: {
+        'ja': 'https://nelvo.co/features',
+        'en': 'https://nelvo.co/en/features',
+        'x-default': 'https://nelvo.co/features',
+      },
   },
   openGraph: {
     title: "Features - NELVO | Unified Dashboard for Creators & Communities",

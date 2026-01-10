@@ -7,11 +7,11 @@ export const metadata: Metadata = {
   description: "In community operations, the reason operational decisions slow down is often a structural problem, not a matter of ability. NELVO solves these structural challenges and enables rapid data-driven decision-making.",
   alternates: {
     canonical: 'https://nelvo.co/en/use-cases',
-    languages: {
-      'ja': 'https://nelvo.co/use-cases',
-      'en': 'https://nelvo.co/en/use-cases',
-      'x-default': 'https://nelvo.co/en/use-cases',
-    },
+      languages: {
+        'ja': 'https://nelvo.co/use-cases',
+        'en': 'https://nelvo.co/en/use-cases',
+        'x-default': 'https://nelvo.co/use-cases',
+      },
   },
   openGraph: {
     title: "Use Cases - NELVO | Unified Dashboard for Creators & Communities",

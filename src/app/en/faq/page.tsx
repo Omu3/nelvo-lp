@@ -7,11 +7,11 @@ export const metadata: Metadata = {
   description: "Here are common questions and answers about NELVO. We've compiled information about service features, integration methods, pricing plans, security, and more.",
   alternates: {
     canonical: 'https://nelvo.co/en/faq',
-    languages: {
-      'ja': 'https://nelvo.co/faq',
-      'en': 'https://nelvo.co/en/faq',
-      'x-default': 'https://nelvo.co/en/faq',
-    },
+      languages: {
+        'ja': 'https://nelvo.co/faq',
+        'en': 'https://nelvo.co/en/faq',
+        'x-default': 'https://nelvo.co/faq',
+      },
   },
   openGraph: {
     title: "FAQ - NELVO | Frequently Asked Questions",

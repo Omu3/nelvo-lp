@@ -7,11 +7,11 @@ export const metadata: Metadata = {
   description: "Connect your favorite platforms with NELVO. Integrate Discord, Stripe, YouTube, Instagram and more. All your community data in one unified dashboard.",
   alternates: {
     canonical: 'https://nelvo.co/en/integrations',
-    languages: {
-      'ja': 'https://nelvo.co/integrations',
-      'en': 'https://nelvo.co/en/integrations',
-      'x-default': 'https://nelvo.co/en/integrations',
-    },
+      languages: {
+        'ja': 'https://nelvo.co/integrations',
+        'en': 'https://nelvo.co/en/integrations',
+        'x-default': 'https://nelvo.co/integrations',
+      },
   },
   openGraph: {
     title: "Integrations - NELVO | Unified Dashboard for Creators & Communities",
