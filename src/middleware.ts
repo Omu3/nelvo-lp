@@ -35,8 +35,18 @@ export function middleware(request: NextRequest) {
         return NextResponse.redirect(url.toString(), 301);
     }
 
-    // 3. Language routing for TOP PAGE ONLY (/, /en)
-    // 下層ページではリダイレクトしない（常に200を返す）
+    // 3. 下層ページ（/features, /pricing, /en/features等）は常に200を返す（リダイレクトしない）
+    // SEO上の安定性を優先するため、下層ページでのAccept-LanguageやCookieによるリダイレクトは一切行わない
+    const seoPages = ['/features', '/pricing', '/use-cases', '/integrations', '/faq', '/status', '/privacy-policy', '/terms'];
+    const isSeoPage = seoPages.some(page => pathname === page || pathname === `/en${page}`);
+    
+    if (isSeoPage) {
+        // 下層ページは常に200を返す（リダイレクトしない）
+        return NextResponse.next();
+    }
+
+    // 4. Language routing for TOP PAGE ONLY (/, /en)
+    // トップページのみ、Accept-Language や Cookie を見てリダイレクト
     if (pathname === '/' || pathname === '/en') {
         // 優先順位: Cookie > Accept-Language > デフォルト（日本語）
         const cookieLang = request.cookies.get('language')?.value;
@@ -66,9 +76,6 @@ export function middleware(request: NextRequest) {
         return NextResponse.next();
     }
 
-    // 4. 下層ページ（/features, /pricing, /en/features等）は常に200を返す（リダイレクトしない）
-    // SEO上の安定性を優先するため、下層ページでのAccept-Languageリダイレクトは実装しない
-
     // 5. Path Consolidation (Suppress 404s by redirecting unknown paths to /)
     // Allowed paths: "/", "/en", "/features", "/pricing", "/use-cases", "/integrations", "/faq", "/status", "/privacy-policy", "/terms", etc.
     const allowedPaths = [
@@ -76,6 +83,7 @@ export function middleware(request: NextRequest) {
         '/features', '/pricing', '/use-cases', '/integrations', '/faq', '/status', '/privacy-policy', '/terms',
         '/en/features', '/en/pricing', '/en/use-cases', '/en/integrations', '/en/faq', '/en/status', '/en/privacy-policy', '/en/terms'
     ];
+    // 未知のパスは / にリダイレクト（404を避ける）
     if (!allowedPaths.includes(pathname) && !pathname.startsWith('/en/')) {
         url.pathname = '/';
         return NextResponse.redirect(url.toString(), 301);
