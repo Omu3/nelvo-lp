@@ -16,33 +16,48 @@ export function middleware(request: NextRequest) {
         return NextResponse.next();
     }
 
-    // 1. Unify Domain: Only allow nelvo.co
-    if (host.startsWith('www.')) {
-        const newHost = host.replace('www.', '');
-        url.host = newHost;
-        url.pathname = '/'; // Force redirect to root to resolve unknown sub-paths on www
-        return NextResponse.redirect(url.toString(), 301);
-    }
-
-    // 2. HTTP -> HTTPS redirect
-    const proto = request.headers.get('x-forwarded-proto');
-    if (proto === 'http') {
-        url.protocol = 'https:';
-        // If it's a random path on HTTP, force it to root as well
-        if (pathname !== '/' && pathname !== '/en') {
-            url.pathname = '/';
-        }
-        return NextResponse.redirect(url.toString(), 301);
-    }
-
-    // 3. 下層ページ（/features, /pricing, /en/features等）は常に200を返す（リダイレクトしない）
+    // 1. 下層ページ（/features, /pricing, /en/features等）は最優先で処理
     // SEO上の安定性を優先するため、下層ページでのAccept-LanguageやCookieによるリダイレクトは一切行わない
     const seoPages = ['/features', '/pricing', '/use-cases', '/integrations', '/faq', '/status', '/privacy-policy', '/terms'];
     const isSeoPage = seoPages.some(page => pathname === page || pathname === `/en${page}`);
     
     if (isSeoPage) {
         // 下層ページは常に200を返す（リダイレクトしない）
+        // www削除やHTTP → HTTPS リダイレクトでも、パスは維持する
+        if (host.startsWith('www.')) {
+            const newHost = host.replace('www.', '');
+            url.host = newHost;
+            // 下層ページのパスは維持する（/に変更しない）
+            return NextResponse.redirect(url.toString(), 301);
+        }
+        
+        const proto = request.headers.get('x-forwarded-proto');
+        if (proto === 'http') {
+            url.protocol = 'https:';
+            // 下層ページのパスは維持する（/に変更しない）
+            return NextResponse.redirect(url.toString(), 301);
+        }
+        
         return NextResponse.next();
+    }
+
+    // 2. Unify Domain: Only allow nelvo.co (トップページまたは未知のパスのみ)
+    if (host.startsWith('www.')) {
+        const newHost = host.replace('www.', '');
+        url.host = newHost;
+        url.pathname = '/'; // トップページまたは未知のパスは / にリダイレクト
+        return NextResponse.redirect(url.toString(), 301);
+    }
+
+    // 3. HTTP -> HTTPS redirect (トップページまたは未知のパスのみ)
+    const proto = request.headers.get('x-forwarded-proto');
+    if (proto === 'http') {
+        url.protocol = 'https:';
+        // トップページ以外の未知のパスは / にリダイレクト（下層ページは既に処理済み）
+        if (pathname !== '/' && pathname !== '/en') {
+            url.pathname = '/';
+        }
+        return NextResponse.redirect(url.toString(), 301);
     }
 
     // 4. Language routing for TOP PAGE ONLY (/, /en)
