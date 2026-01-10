@@ -42,7 +42,7 @@ export const translations = {
             label: "The Solution",
             headline: "分散した運営データが、\nひとつの視点でつながる。",
             desc: "NELVO は、複数の運営チャネルにまたがるデータを整理・可視化し、運営状況を横断的に把握できるダッシュボードです。\nツールを行き来することなく、判断に必要な情報だけを確認できます。",
-            compatible: "対応プラットフォームは順次拡張予定。現在ご利用中の運営環境に合わせて柔軟に活用できます。",
+            compatible: "現在は Discord / Stripe / YouTube / Instagram を中心に連携し、今後も順次対応プラットフォームを拡張予定です。",
             chart: {
                 retention: "継続率",
             },
@@ -140,7 +140,7 @@ export const translations = {
                 },
                 {
                     q: "どのサービスと連携できますか？",
-                    a: "現在、Discord、Stripe、YouTube、Instagramと連携可能です。各プラットフォームのAPIを使用して安全に連携し、必要最小限のデータのみを取得します。対応プラットフォームは順次拡張予定です。",
+                    a: "現在は Discord / Stripe / YouTube / Instagram を中心に連携し、今後も順次対応プラットフォームを拡張予定です。各プラットフォームのAPIを使用して安全に連携し、必要最小限のデータのみを取得します。",
                 },
                 {
                     q: "データの同期はどのくらいの頻度で行われますか？",
@@ -206,7 +206,7 @@ export const translations = {
             }
         },
         footer: {
-            copyright: "© 2025 NELVO. All rights reserved.",
+            copyright: "© 2026 NELVO. All rights reserved.",
             links: {
                 product: {
                     title: "Product",
@@ -240,59 +240,101 @@ export const translations = {
         pages: {
             features: {
                 title: "Features",
-                description: "NELVOは、複数のツールに散らばったコミュニティ運営データを統合し、ひとつの画面で全体像を把握できるダッシュボードです。日々の運営判断に必要な情報を効率的に確認でき、データに基づいた意思決定を迅速に行えます。各機能は、実際の運営現場で発生する課題を解決するために設計されており、直感的な操作で誰でも簡単に使いこなすことができます。",
+                description: "Discordのメンバー増加、YouTubeのチャンネル成長、Instagramのエンゲージメント、Stripeの収益データを、同じ画面で一元管理。各プラットフォームに分散した運営データを統合し、「メンバーは増えているのに解約が増えている」といった矛盾を即座に検知して、データに基づいた意思決定を実現します。",
+                overview: {
+                    title: "機能サマリー",
+                    items: [
+                        {
+                            label: "統合データ",
+                            value: "Discord / Stripe / YouTube / Instagram を中心に連携（対応プラットフォームは順次拡張）"
+                        },
+                        {
+                            label: "主要指標",
+                            value: "MRR / Churn（解約率）/ Retention（継続率）/ Active rate / Reach / Engagement など"
+                        },
+                        {
+                            label: "活用",
+                            value: "成長と収益のズレ（例：メンバー増×解約増）を検知し、改善アクションの優先順位を判断"
+                        }
+                    ]
+                },
                 mainFeatures: [
                     {
                         title: "データ統合",
-                        description: "複数チャネルに分散した運営データを横断的に整理。",
+                        description: "Discord、YouTube、Instagramの成長データとStripeの収益データを、同じ画面で横断的に確認。",
                         details: [
-                            "Discord、Stripe、YouTube、Instagramなど、複数のプラットフォームに分散している運営データを自動的に統合",
-                            "各ツールのAPIと連携し、リアルタイムでデータを同期",
-                            "異なるプラットフォーム間のデータを横断的に確認",
-                            "認証情報は安全に管理され、必要最小限のデータのみを取得",
+                            "Discordのメンバー数・アクティブ率をStripeのMRR（月次経常収益）と比較し、成長率のギャップを検知",
+                            "YouTubeのチャンネル登録者数やengagement率と、Stripeの解約率（churn rate）を同時に確認して、コンテンツ品質と収益の相関を分析",
+                            "Instagramのreach・engagement指標とDiscordのメンバー増減を統合し、流入経路の効果を判断",
+                            "各プラットフォームのAPIでリアルタイム同期し、手動集計は不要",
                         ],
                     },
                     {
                         title: "メンバー状況の可視化",
-                        description: "参加・継続・離脱など、コミュニティの状態を把握。",
+                        description: "アクティブ率・継続率・解約率を可視化し、離脱リスクを早期検知。",
                         details: [
-                            "新規加入者、アクティブメンバー、解約者を自動的に分類",
-                            "加入日、更新日、解約日も自動で記録",
-                            "コミュニティごとの増減状況をグラフで確認",
-                            "どの時期に成長したか、どの時期に離脱が増えたかを視覚的に把握",
+                            "retention率（継続率）を6ヶ月・12ヶ月単位で追跡し、継続率が低下しているセグメントを特定",
+                            "新規加入者と解約者を時系列で比較し、「増えているのに減っている」矛盾パターンを自動検知",
+                            "メンバー増減をコミュニティごとにグラフ化し、成長期と離脱期を視覚的に把握",
+                            "アクティブ率の低下と解約率の上昇のタイミングを重ね合わせて、離脱の兆候を早期発見",
                         ],
                     },
                     {
                         title: "収益・成長の把握",
-                        description: "数字の変化をまとめて確認し、次の一手を判断。",
+                        description: "MRR、LTV、churn率などの収益指標を追跡し、成長の質を評価。",
                         details: [
-                            "MRR（月次経常収益）、月次売上、LTV（顧客生涯価値）などの重要な収益指標を自動計算",
-                            "数値の変化を時系列で追跡",
-                            "継続率の推移も6ヶ月、12ヶ月単位で可視化",
-                            "セグメント別のパフォーマンス分析（Returning、VIP、At Riskなど）",
+                            "MRR（月次経常収益）の推移とchurn率（解約率）を同時に確認し、「売上は増えているが離脱も増えている」問題を検知",
+                            "LTV（顧客生涯価値）をセグメント別に計算し、高価値ユーザー層の特徴を特定して施策を最適化",
+                            "継続率（retention rate）が6ヶ月・12ヶ月で下がっている場合、収益の質が低下していると判断",
+                            "Returning / VIP / At Riskセグメントのパフォーマンスを比較し、優先すべき施策を決定",
                         ],
                     },
                     {
                         title: "Todayビュー",
-                        description: "今日見るべき変化だけをシンプルに表示。",
+                        description: "今日の新規・解約・更新を一目で確認し、即座に判断すべき変化を検知。",
                         details: [
-                            "新規加入者、解約者、更新者の情報を一目で確認",
-                            "日々の運営業務を効率化",
-                            "不要な情報に惑わされることなく、判断に必要な情報だけに集中",
-                            "シンプルなインターフェースで、初めて利用する方でも迷うことなく操作",
+                            "今日の新規加入者数と解約者数を比較し、解約者が異常に多い場合は即座にアラート表示",
+                            "更新者の増減を確認し、リニューアル施策の効果を当日中に評価",
+                            "Discord・YouTube・Instagramそれぞれの今日の指標変化を横並びで確認し、特定プラットフォームの異常を検知",
+                            "Stripeの今日の収益と、各プラットフォームのアクティビティを照合して、収益に直結するアクションを特定",
                         ],
                     },
                 ],
                 analytics: {
                     title: "Analytics ダッシュボード",
-                    description: "詳細な分析機能を提供するAnalyticsダッシュボードでは、継続率の推移、売上指標のトラッキング、セグメント別パフォーマンス分析など、高度な分析が可能です。複数コミュニティの比較グラフや、参加月×継続率のコホート分析（Retention Heatmap）も利用できます。",
-                    description2: "これらの分析機能により、データに基づいた運営判断が可能になり、感覚や経験に頼らない再現性の高い意思決定が実現します。成長速度と収益性を最大化するための洞察を得られます。",
+                    description: "複数コミュニティの比較グラフ、コホート分析（Retention Heatmap）、トレンド分析により、運営のズレを可視化。",
+                    description2: "比較分析で「コミュニティAは成長しているのにBは停滞」を検知。コホート分析で「2024年3月加入者の継続率が異常に低い」という問題を発見。トレンド分析で「churn率が上昇傾向だがMRRは横ばい」という質の低下を早期に察知できます。",
                     highlights: [
-                        "複数コミュニティの比較グラフ",
-                        "参加月×継続率のコホート分析（Retention Heatmap）",
-                        "データに基づいた運営判断",
-                        "成長速度と収益性を最大化するための洞察",
+                        "複数コミュニティの比較グラフ：成長率・継続率・解約率を並べて、運営方針の効果差を検証",
+                        "コホート分析（参加月×継続率のRetention Heatmap）：特定期間加入者の離脱パターンを特定し、施策のタイミングを最適化",
+                        "トレンド分析：MRR・churn率・retention率の推移から、成長の質の変化を早期に検知",
+                        "セグメント別パフォーマンス：高継続率セグメントと高離脱率セグメントの特徴を比較し、改善施策を立案",
                     ],
+                },
+                faq: {
+                    title: "よくある質問",
+                    items: [
+                        {
+                            q: "どのデータを取得しますか？",
+                            a: "Discordからはメンバー数・アクティブ率・参加日、StripeからはMRR・churn率・LTV・サブスクリプション状況、YouTubeからは登録者数・視聴回数・engagement率・収益データ、Instagramからはフォロワー数・reach・engagement率を取得します。認証情報は取得せず、必要最小限の運営データのみを扱います。"
+                        },
+                        {
+                            q: "連携を解除できますか？",
+                            a: "はい、いつでも設定画面から連携を解除できます。解除後も過去データは保持されますが、新規データの取得は停止します。再連携時は、解除前のデータを引き続き確認できます。"
+                        },
+                        {
+                            q: "セキュリティは大丈夫ですか？",
+                            a: "OAuth認証を使用し、認証情報は暗号化して安全に管理します。各プラットフォームのAPIは必要最小限の権限のみを要求し、取得したデータはSSL/TLSで暗号化通信を行います。定期的なセキュリティ監査も実施しています。"
+                        },
+                        {
+                            q: "データの同期頻度は？",
+                            a: "最新データを反映するよう、各プラットフォームのAPIやWebhook等を使用してデータを同期します。新規加入・解約・更新などのイベントは即座に反映され、一部の指標（YouTubeのエンゲージメント率など）は1日1回更新されます。"
+                        },
+                        {
+                            q: "どんな人に向いていますか？",
+                            a: "Discord・YouTube・Instagramなど複数プラットフォームでコミュニティ運営を行い、Stripeでサブスクリプション収益を管理しているクリエイター・コミュニティ運営者向けです。特に、「メンバーは増えているのに収益が伸びない」「どの施策が効果的か判断に迷う」といった課題をお持ちの方におすすめです。"
+                        }
+                    ]
                 },
                 footerCta: "料金プランについては",
                 footerCtaLink: "こちら",
@@ -300,68 +342,122 @@ export const translations = {
             },
             integrations: {
                 title: "Integrations",
-                description: "NELVOは、主要なコミュニティ運営サービスや決済サービスと連携し、複数のプラットフォームに分散している運営データを統合します。各プラットフォームのAPIと安全に連携し、リアルタイムでデータを同期するため、手動での集計作業は不要です。対応プラットフォームは順次拡張予定で、現在利用している運営環境に合わせて柔軟に活用できます。",
+                description: "NELVOは、複数プラットフォームに分散した運営データを統合し、同じ画面で状況を把握できます。連携後は初回同期を行い、その後は必要なタイミングで手動更新できます。現在は Discord / Stripe / YouTube / Instagram を中心に連携し、今後も順次対応プラットフォームを拡張予定です。",
+                overview: {
+                    title: "連携サマリー",
+                    items: [
+                        {
+                            label: "対応プラットフォーム",
+                            value: "Discord / Stripe / YouTube / Instagram を中心に連携（対応プラットフォームは順次拡張）"
+                        },
+                        {
+                            label: "取得データ",
+                            value: "Discord：メンバー数 / アクティブ率 / 参加・離脱"
+                        },
+                        {
+                            label: "",
+                            value: "Stripe：MRR / 解約率（Churn）/ LTV / サブスク状況"
+                        },
+                        {
+                            label: "",
+                            value: "YouTube：登録者数 / 視聴回数 / エンゲージメント"
+                        },
+                        {
+                            label: "",
+                            value: "Instagram：フォロワー数 / リーチ（Reach）/ エンゲージメント"
+                        },
+                        {
+                            label: "活用",
+                            value: "成長と収益のズレを検知し、優先すべき改善アクションを特定"
+                        }
+                    ]
+                },
                 platforms: [
                     {
                         name: "Discord",
-                        description: "Discordは、多くのコミュニティで使用されているコミュニケーションツールです。NELVOとDiscordを連携することで、サーバーメンバーの情報、参加日、アクティビティ状況などを自動的に取得し、ダッシュボード上で確認できます。",
+                        description: "Discordのメンバー数・アクティブ率・参加日を取得し、Stripeの月次経常収益（MRR）と比較することで、メンバー増加率と収益成長率のズレを検知できます。",
                         details: [
-                            "DiscordのOAuth認証を使用して安全に連携",
-                            "必要最小限の権限のみを要求",
-                            "メンバーの個人情報は適切に保護",
-                            "連携の設定は簡単で、数分で完了",
-                        ],
-                    },
-                    {
-                        name: "Stripe",
-                        description: "Stripeは、オンライン決済処理を提供するサービスです。NELVOとStripeを連携することで、決済情報、顧客データ、サブスクリプション状況などを自動的に取得できます。MRR（月次経常収益）やLTV（顧客生涯価値）などの重要な指標も自動計算されます。",
-                        details: [
-                            "StripeのWebhookを使用してリアルタイムで決済イベントを取得",
-                            "顧客の支払い状況や解約・更新のタイミングも自動で記録",
-                            "収益管理が効率化",
-                            "MRR、LTVなどの重要な指標を自動計算",
-                        ],
-                    },
-                    {
-                        name: "YouTube",
-                        description: "YouTubeは、動画コンテンツを配信・管理するプラットフォームです。NELVOとYouTubeを連携することで、チャンネル登録者数、動画の視聴回数、エンゲージメント率、収益データなどを自動的に取得できます。コンテンツのパフォーマンスを他のプラットフォームのデータと統合して分析できます。",
-                        details: [
-                            "YouTube Data APIを通じてリアルタイムでデータを同期",
-                            "チャンネル登録者数の推移や動画のパフォーマンスを追跡",
-                            "視聴回数、エンゲージメント率などの指標を自動取得",
-                            "収益データと他のプラットフォームのデータを統合して分析",
+                            "取得データ：メンバー数、アクティブ率、参加日、離脱率",
+                            "指標：アクティブ率（Active rate）、継続率（Retention）、メンバー増加率（Member growth rate）",
+                            "判断できること：アクティブ率が低下しているのにメンバーは増えている場合、新規加入者の定着が課題と判断",
+                            "認証・権限：OAuth認証等を使用。必要最小限の権限のみ要求（メンバー情報の閲覧のみ）",
                         ],
                     },
                     {
                         name: "Instagram",
-                        description: "Instagramは、写真・動画を共有するSNSプラットフォームです。NELVOとInstagramを連携することで、フォロワー数、投稿のエンゲージメント率、ストーリーズの視聴数、リーチ数などのデータを自動的に取得できます。Instagramのパフォーマンスを他のプラットフォームのデータと統合して確認できます。",
+                        description: "Instagramのフォロワー数・リーチ（Reach）・エンゲージメント率を取得し、Discordの流入経路と照合することで、「SNSからの流入はあるのにDiscord参加率が低い」といった課題を発見できます。",
                         details: [
-                            "Instagram Graph APIを通じてリアルタイムでデータを同期",
-                            "フォロワー数の推移や投稿のエンゲージメント率を追跡",
-                            "ストーリーズの視聴数やリーチ数などの指標を自動取得",
-                            "他のプラットフォームのデータと統合して全体の運営状況を把握",
+                            "取得データ：フォロワー数、リーチ（Reach）、エンゲージメント率、ストーリーズの視聴数、投稿のパフォーマンス",
+                            "指標：フォロワー増加率（Follower growth rate）、リーチ（Reach）、エンゲージメント率（Engagement）",
+                            "判断できること：リーチは増えているのにDiscordの新規参加者が増えない場合、流入経路の最適化が必要と判断",
+                            "認証・権限：Instagram Graph API等を使用。OAuth認証でアカウント情報とインサイトの読み取りのみ",
+                        ],
+                    },
+                    {
+                        name: "YouTube",
+                        description: "YouTubeの登録者数・視聴回数・エンゲージメント率・収益データを取得し、Discordのメンバー増減やStripeのMRRと統合分析。「コンテンツは伸びているのに収益が追いつかない」といったズレを検知できます。",
+                        details: [
+                            "取得データ：チャンネル登録者数、視聴回数、エンゲージメント率、収益データ、動画のパフォーマンス",
+                            "指標：登録者増加率（Subscriber growth rate）、エンゲージメント率（Engagement）、収益（Revenue）、視聴回数（View count）",
+                            "判断できること：登録者数は増えているのにエンゲージメント率が低下している場合、コンテンツ品質の見直しが必要と判断",
+                            "認証・権限：YouTube Data API等を使用。OAuth認証でチャンネル情報の読み取りのみ",
+                        ],
+                    },
+                    {
+                        name: "Stripe",
+                        description: "Stripeの月次経常収益（MRR）・解約率（Churn）・顧客生涯価値（LTV）を自動計算し、DiscordやYouTubeの成長データと照合することで、「伸びているのに収益が下がる」問題を早期に検知できます。",
+                        details: [
+                            "取得データ：月次経常収益（MRR）、解約率（Churn）、顧客生涯価値（LTV）、サブスクリプション状況、顧客の支払い履歴",
+                            "指標：MRR（月次経常収益）、解約率（Churn）、継続率（Retention）、LTV（顧客生涯価値）",
+                            "判断できること：解約率が上昇しているのにMRRが横ばいの場合、新規獲得はあるが離脱が加速していると判断し、リテンション施策を優先",
+                            "認証・権限：Stripe APIキーとWebhook等を利用。決済情報の読み取りのみ（支払い処理は行わない）",
                         ],
                     },
                 ],
                 security: {
                     title: "連携の安全性",
-                    description: "NELVOは、各プラットフォームとの連携において、最高レベルのセキュリティを確保しています。OAuth認証を使用し、認証情報は安全に管理されます。連携に使用する認証情報は取得せず、必要最小限のデータのみを扱います。",
+                    description: "NELVOは、各プラットフォームとの連携において、適切なセキュリティ対策を実施しています。OAuth認証等を使用し、認証情報は暗号化して管理します。連携に使用する認証情報は取得せず、必要最小限のデータのみを扱います。",
                     details: [
-                        "すべてのデータ通信はSSL/TLSにより暗号化",
-                        "外部に公開されない安全な環境で管理",
-                        "定期的なセキュリティ監査を実施",
-                        "お客様のデータを最優先に保護",
+                        "データ通信はSSL/TLSにより暗号化",
+                        "認証情報は暗号化して安全な環境で管理",
+                        "セキュリティレビューを実施（個人運営でも実装可能な範囲）",
+                        "取得データは運営判断に必要な範囲に限定",
                     ],
                 },
                 future: {
                     title: "今後の拡張予定",
-                    description: "対応プラットフォームは順次拡張予定です。現在利用している運営環境に合わせて、柔軟に活用できます。新たなプラットフォームの追加要望も受け付けており、多くのユーザーから要望の多いプラットフォームを優先的に追加していきます。",
+                    description: "対応プラットフォームは順次拡張予定です。現在利用している運営環境に合わせて、柔軟に活用できます。新たなプラットフォームの追加要望も受け付けており、多くのユーザーから要望の多いプラットフォームを優先的に追加していきます。ご要望は support@nelvo.co までお気軽にお問い合わせください。",
                     details: [
                         "連携の設定は直感的なインターフェースで簡単に実行",
                         "各プラットフォームの接続・切断も数クリックで完了",
                         "運営環境の変化に合わせて柔軟に連携を変更",
-                        "ユーザー要望に基づいて優先的にプラットフォームを追加",
+                        "ユーザー要望に基づいて優先的にプラットフォームを追加（要望は support@nelvo.co まで）",
                     ],
+                },
+                faq: {
+                    title: "よくある質問",
+                    items: [
+                        {
+                            q: "連携に必要な権限は？",
+                            a: "各プラットフォームで必要最小限の権限のみを要求します。Discordはメンバー情報の閲覧、Stripeは決済情報の読み取り（支払い処理は行わない）、YouTubeとInstagramはチャンネル・アカウント情報とインサイトの読み取りのみです。OAuth認証等を使用し、認証情報は暗号化して管理します。"
+                        },
+                        {
+                            q: "連携を解除できますか？",
+                            a: "はい、いつでも設定画面から連携を解除できます。解除後も過去のデータは保持されますが、新規データの取得は停止します。再連携時は、解除前のデータを引き続き確認できます。"
+                        },
+                        {
+                            q: "連携データは保存されますか？",
+                            a: "連携を解除しても、過去に取得したデータは安全に保存されます。再連携時には、解除前のデータを引き続き確認でき、時系列での分析も可能です。データの削除を希望する場合は、support@nelvo.co までお問い合わせください。"
+                        },
+                        {
+                            q: "データの同期頻度は？",
+                            a: "連携直後に初回同期を行い、その後は必要なタイミングで手動更新できます。将来的には定期同期にも対応予定です（更新頻度はデータ種別・各プラットフォーム仕様により変動）。"
+                        },
+                        {
+                            q: "対応プラットフォームは今後増えますか？",
+                            a: "はい、対応プラットフォームは順次拡張予定です。現在は Discord / Stripe / YouTube / Instagram を中心に連携していますが、多くのユーザーから要望の多いプラットフォームを優先的に追加していきます。ご要望は support@nelvo.co までお気軽にお問い合わせください。"
+                        }
+                    ]
                 },
                 footerCta: "料金プランについては",
                 footerCtaLink: "こちら",
@@ -369,72 +465,60 @@ export const translations = {
             },
             useCases: {
                 title: "Use Cases",
-                description: "コミュニティ運営において、運営判断が遅れる原因は「能力」ではなく「構造」の問題であることが多いです。NELVOは、この構造的な課題を解決し、データに基づいた迅速な意思決定を実現します。ここでは、NELVOが解決する主な課題と、その活用事例をご紹介します。",
+                description: "コミュニティ運営では、KPIがツールごとに分散し、意思決定が遅れます。NELVOは運営データを横断統合し、MRR・継続率・解約率を運営ダッシュボードで可視化します。Discord / Stripe / YouTube / Instagram など主要プラットフォームを中心に連携し、対応プラットフォームは順次拡張予定です。",
                 cases: [
                     {
-                        title: "判断が感覚に寄ってしまう課題の解決",
-                        description: "明確な根拠となる数字があちこちに分散しているため、経験や勘に頼った判断が増えていきます。これにより、判断に再現性がなくなり、成果も安定しません。NELVOを使用することで、複数のツールに散らばった運営データを統合し、明確な根拠に基づいた判断が可能になります。",
+                        title: "MRR・継続率・解約率で運営判断を最適化",
+                        description: "KPIが分散すると、経験に依存した判断が増え、収益改善の機会を逃します。NELVOは運営データを統合し、MRR・継続率・解約率を一画面で可視化します。",
                         details: [
-                            "メンバー数の増減や収益の変化を時系列で確認",
-                            "感覚ではなくデータに基づいて判断",
-                            "継続率の推移やセグメント別のパフォーマンス分析",
-                            "どの施策が効果的だったかを定量的に評価",
-                            "再現性の高い運営が実現",
+                            "MRR・継続率・解約率の変化を時系列で把握",
+                            "指標のズレ（例：メンバー増 × 売上減）を早期検知",
+                            "施策の効果をデータで比較し、改善判断へ",
                         ],
                     },
                     {
-                        title: "情報がツールごとに分断される課題の解決",
-                        description: "SNS・決済・コミュニティなど、運営データがツールごとに散らばっているため、現状を把握するだけで時間がかかり、判断すべきタイミングを逃してしまいます。NELVOは、これらのデータを自動的に統合し、ひとつの画面で全体像を把握できます。",
+                        title: "データ分断を統合し、全体KPIを可視化",
+                        description: "Discord・SNS・決済がバラバラだと、全体KPIが見えません。NELVOは必要な指標を横断的に揃え、運営ダッシュボードで全体像を即座に把握できます。",
                         details: [
-                            "Discordのメンバー情報、Stripeの決済データ、YouTubeのチャンネルデータ、Instagramのエンゲージメントデータなどを横断的に確認",
-                            "ツールを行き来することなく、判断に必要な情報だけを効率的に確認",
-                            "意思決定のスピードが大幅に向上",
-                            "全体像をひとつの画面で把握",
+                            "Discord / Stripe / YouTube / Instagram など主要プラットフォームの指標を横並びで確認",
+                            "見る場所を減らし、判断スピードを向上",
+                            "チームでも同じKPIを共有可能",
                         ],
                     },
                     {
-                        title: "共有のたびに集計し直す課題の解決",
-                        description: "チームへの共有や報告のたびに、手作業でデータを集め直す必要があります。この遅れが積み重なり、意思決定が後ろ倒しになります。NELVOでは、データが自動的に集計されるため、共有や報告の準備時間を大幅に短縮できます。",
+                        title: "レポート・共有の手作業を削減",
+                        description: "レポートや共有のたびに手作業で集計すると、運営判断が後回しになります。NELVOは運営ダッシュボードで最新データを即確認でき、確認→共有までの導線を短縮します。",
                         details: [
-                            "ダッシュボード上で最新の運営状況を確認",
-                            "必要な情報をすぐに共有",
-                            "グラフや数値は自動で更新",
-                            "手動での集計作業は不要",
-                            "より重要な意思決定や戦略立案に集中",
+                            "最新データを運営ダッシュボードで即確認",
+                            "共有用の数字・変化をすぐ提示",
+                            "余計な集計作業を削減し、工数削減",
                         ],
                     },
                     {
-                        title: "日々の運営チェックの効率化",
-                        description: "Todayビュー機能により、今日確認すべき重要な変化だけをシンプルに表示します。新規加入者、解約者、更新者の情報を一目で確認でき、日々の運営業務を効率化します。不要な情報に惑わされることなく、判断に必要な情報だけに集中できます。",
+                        title: "日次チェックを1画面で完結",
+                        description: "日々の確認項目が多いほど、重要な変化を見逃します。NELVOは運営ダッシュボードで重要な変化だけを整理して表示します。",
                         details: [
-                            "新規加入者、解約者、更新者の情報を一目で確認",
-                            "日々の運営業務を効率化",
-                            "毎日の運営チェック時間を大幅に短縮",
-                            "より重要な意思決定や戦略立案に時間を割ける",
-                            "シンプルなインターフェースで初めて利用する方でも迷うことなく操作",
+                            "新規/解約/更新など重要イベントを一覧化",
+                            "異常値・急変を早期に検知",
+                            "判断に必要な情報へ集中",
                         ],
                     },
                     {
-                        title: "データドリブンな運営の実現",
-                        description: "NELVOのAnalytics機能により、継続率の推移、売上指標のトラッキング、セグメント別パフォーマンス分析など、高度な分析が可能です。これらの分析機能により、データに基づいた運営判断が可能になり、感覚や経験に頼らない再現性の高い意思決定が実現します。",
+                        title: "成長と収益のズレを検知",
+                        description: "「伸びているのか」「収益が上がっているのか」は複数指標で見る必要があります。NELVOは運営数字を横断的にトラッキングし、成長と収益のズレを可視化します。",
                         details: [
-                            "複数コミュニティの比較グラフ",
-                            "参加月×継続率のコホート分析（Retention Heatmap）",
-                            "データに基づいた運営判断",
-                            "成長速度と収益性を最大化するための洞察",
-                            "コミュニティの成長を加速",
+                            "継続率・解約率・収益指標を統合トラッキング",
+                            "セグメント別（Returning/VIP等）で比較",
+                            "成長要因と失速要因を特定し、収益改善へ",
                         ],
                     },
                     {
-                        title: "チームでの情報共有の改善",
-                        description: "NELVOのダッシュボードは、チーム全体で共有できるため、運営状況を全員が同じ視点で確認できます。これにより、情報の非対称性が解消され、チーム全体で一貫した判断が可能になります。",
+                        title: "チームで同じKPIを見る",
+                        description: "数字の見方が人によって違うと、議論が噛み合わず判断が遅れます。NELVOは共通のKPIで状況を揃え、意思決定を標準化します。",
                         details: [
-                            "運営状況を全員が同じ視点で確認",
-                            "情報の非対称性が解消",
-                            "チーム全体で一貫した判断が可能",
-                            "報告や共有の準備時間を短縮",
-                            "データに基づいた議論が可能",
-                            "チーム全体の生産性向上",
+                            "同じKPIを同じ運営ダッシュボードで確認",
+                            "認識ズレを減らし、議論を前進",
+                            "報告・共有の時間を短縮し、工数削減",
                         ],
                     },
                 ],
@@ -444,11 +528,11 @@ export const translations = {
             },
             pricing: {
                 title: "Pricing",
-                description: "NELVOは、コミュニティの規模と運営目的に合わせて、2つの料金プランをご用意しています。Basicプランは、運営の基盤を整えたい方向けのエントリープランです。Proプランは、データを活用して意思決定を行い、成長速度と収益性を最大化したい方向けのプランです。どちらのプランも、いつでも自由に変更・キャンセルが可能で、コミュニティの成長に合わせて柔軟にプランを変更できます。",
+                description: "NELVOは2つの料金プラン（Basic 月額¥2,980・Pro 月額¥6,980）を提供しています。Discord/Stripe/YouTube/Instagramの運営データを統合し、MRR・継続率・解約率を運営ダッシュボードで可視化します。プラン変更・解約はいつでも可能です。",
                 plans: {
                     basic: {
                         title: "Basicプラン",
-                        description: "Basicプランは、コミュニティ運営の基盤を整えたい方向けのプランです。対応しているサービスから最大3件まで連携でき、主要なコミュニティ・決済プラットフォームに対応しています。メンバー情報や決済ステータスは自動同期され、加入日・更新日・解約日も自動管理されます。",
+                        description: "Basicプランは、コミュニティ運営の基盤を整えたい方向けの料金プランです。対応しているサービスから最大3件まで連携でき、主要なコミュニティ・決済プラットフォームに対応しています。メンバー情報や決済ステータスは自動同期され、加入日・更新日・解約日も自動管理されます。",
                         details: [
                             "Todayダッシュボードで今日の新規・解約・更新を一目で把握でき、コミュニティごとの増減状況も確認できます。",
                             "Analyticsではトレンドの概要のみ確認可能で、基本的な運営状況の把握に最適です。",
@@ -458,9 +542,9 @@ export const translations = {
                     pro: {
                         title: "Proプラン",
                         badge: "おすすめ",
-                        description: "Proプランは、データを活用して意思決定を行い、成長速度と収益性を最大化したい方向けのプランです。対応しているサービスから最大7件まで連携でき、大規模コミュニティにも対応しています。メンバー・決済・コミュニティ情報を横断して一元管理でき、Analyticsダッシュボードをすべて利用できます。",
+                        description: "Proプランは、データを活用して意思決定を行い、成長速度と収益性を最大化したい方向けの料金プランです。対応しているサービスから最大7件まで連携でき、大規模コミュニティにも対応しています。メンバー・決済・コミュニティ情報を横断して一元管理でき、Analyticsダッシュボードをすべて利用できます。",
                         details: [
-                            "継続率の推移（6ヶ月・12ヶ月）を可視化し、売上指標（MRR、月次売上、LTVなど）のトラッキングが可能です。",
+                            "継続率の推移（6ヶ月・12ヶ月）を可視化し、売上指標（MRR（月次経常収益）、月次売上、LTVなど）のトラッキングが可能です。",
                             "セグメント別パフォーマンス分析や、複数コミュニティの比較グラフ、参加月×継続率のコホート分析（Retention Heatmap）など、高度な分析機能を利用できます。",
                             "データドリブンな運営を実現したい方におすすめのプランです。",
                         ],
@@ -480,9 +564,30 @@ export const translations = {
                         { name: "コホート分析（Retention Heatmap）", basic: false, pro: true },
                     ],
                 },
+                planSelection: {
+                    title: "どっちを選ぶべき？",
+                    basic: {
+                        title: "Basicプランが向いている方",
+                        items: [
+                            "小規模なコミュニティ運営",
+                            "まずは複数ツールのデータを統合したい",
+                            "最低限の運営確認（新規・解約・更新の把握）ができれば良い",
+                            "運営の基盤を整えたい段階",
+                        ],
+                    },
+                    pro: {
+                        title: "Proプランが向いている方",
+                        items: [
+                            "MRR（月次経常収益）・Churn（解約率）・Retention（継続率）など本格的な分析が必要",
+                            "複数サービス（4件以上）を統合したい",
+                            "セグメント別パフォーマンス分析やコホート分析など高度な分析機能を活用したい",
+                            "データドリブンな意思決定を高速化したい",
+                        ],
+                    },
+                },
                 otherSections: [
                     {
-                        title: "プラン変更について",
+                        title: "プラン変更・解約（いつでも可能）",
                         description: "プランはいつでも自由に変更・キャンセルが可能です。コミュニティの成長に合わせて、BasicプランからProプランへのアップグレードも、その逆のダウングレードも、月単位で柔軟に対応できます。変更は即座に反映され、追加の手数料はかかりません。",
                         details: [
                             "解約も自由に行え、解約後も当月の終了日までは利用可能です。",
@@ -498,15 +603,6 @@ export const translations = {
                             "連携の詳細は設定画面から確認でき、簡単な操作で接続・切断が可能です。",
                         ],
                     },
-                    {
-                        title: "事前登録について",
-                        description: "現在、NELVOは事前登録のみ受付中です。正式リリース前に、先行案内・優先アクセスをご案内します。事前登録は無料で、登録後は正式リリース時に優先的にご案内いたします。",
-                        details: [
-                            "事前登録時には、利用予定のプラットフォームや希望プランをお選びいただけます。",
-                            "これらの情報は、サービス改善の参考にさせていただきます。",
-                            "正式リリースの準備が整い次第、ご登録いただいたメールアドレスにご連絡いたします。",
-                        ],
-                    },
                 ],
                 footerCta: "事前登録は無料です。正式リリース時に優先的にご案内いたします。",
                 footerCtaButton: "事前登録する",
@@ -516,32 +612,36 @@ export const translations = {
                 description: "NELVOに関するよくある質問と回答をご紹介します。サービス内容、連携方法、料金プラン、セキュリティなど、気になる点をまとめています。",
                 items: [
                     {
-                        q: "NELVOとは何ですか？",
-                        a: "NELVOは、複数のコミュニティ運営ツールや決済サービスに分散している運営データを統合し、ひとつの画面で全体像を把握できるダッシュボードです。Discord、Stripe、YouTube、Instagramなどのデータを自動的に統合し、メンバー状況、収益、アクティビティを一覧で確認できます。"
+                        q: "料金プランの違いは？",
+                        a: "Basicプラン（月額¥2,980）は最大3サービスまで連携可能で、TodayダッシュボードやAnalytics概要を利用できます。Proプラン（月額¥6,980）は最大7サービスまで連携可能で、継続率推移、売上指標（MRR・LTV等）、セグメント分析、コホート分析など高度な分析機能を利用できます。"
                     },
                     {
-                        q: "どのサービスと連携できますか？",
-                        a: "現在、Discord、Stripe、YouTube、Instagramと連携可能です。各プラットフォームのAPIを使用して安全に連携し、必要最小限のデータのみを取得します。対応プラットフォームは順次拡張予定です。"
+                        q: "支払い方法は？",
+                        a: "月額制の料金プランで、クレジットカードでのお支払いに対応予定です。プラン変更・解約はいつでも可能で、追加手数料はかかりません。"
                     },
                     {
-                        q: "データの同期はどのくらいの頻度で行われますか？",
-                        a: "データはリアルタイムで同期されます。各プラットフォームのAPIやWebhookを使用して、新規加入、解約、更新などの情報を自動的に取得し、ダッシュボード上で確認できます。"
+                        q: "いつでも解約できますか？",
+                        a: "はい、いつでも自由に解約できます。設定画面から解約手続きが可能で、解約後も当月の終了日までは利用できます。データは安全に保管され、再契約時には以前のデータを引き続き利用できます。"
                     },
                     {
-                        q: "料金プランや課金方法について教えてください",
-                        a: "NELVOは月額制の料金プランを提供しています。Basicプラン（最大3サービス連携）とProプラン（最大7サービス連携）の2つからお選びいただけます。プランはいつでも変更・キャンセルが可能で、追加の手数料はかかりません。"
+                        q: "プラン変更はいつ反映されますか？",
+                        a: "プラン変更は即座に反映されます。BasicからProへのアップグレード、またはダウングレードも月単位で柔軟に対応でき、追加手数料はかかりません。"
                     },
                     {
-                        q: "セキュリティやデータの取り扱いについて",
-                        a: "すべての通信は暗号化され、安全な環境で管理されています。連携に使用する認証情報は取得せず、必要最小限のデータのみを扱います。OAuth認証を使用して安全に連携し、各プラットフォームの権限設定に従って適切にデータを保護します。"
+                        q: "データはどのくらい保持されますか？",
+                        a: "解約後も過去のデータは安全に保存されます。再契約時には以前のデータを引き続き確認でき、時系列での分析も可能です。データ削除を希望する場合は、support@nelvo.coまでお問い合わせください。"
                     },
                     {
-                        q: "プランを解約する方法を教えてください",
-                        a: "プランはいつでも自由に解約できます。設定画面から簡単に解約手続きが可能です。解約後も当月の終了日までは利用可能で、データは安全に保管されます。再契約時には以前のデータを引き続き利用できます。"
+                        q: "連携に必要な権限は？",
+                        a: "各プラットフォームで必要最小限の権限のみを要求します。Discordはメンバー情報の閲覧、Stripeは決済情報の読み取り（支払い処理は行わない）、YouTubeとInstagramはチャンネル・アカウント情報とインサイトの読み取りのみです。OAuth認証等を使用し、認証情報は暗号化して管理します。"
                     },
                     {
-                        q: "問い合わせ先はありますか？",
-                        a: "ご不明な点やご質問がございましたら、support@nelvo.coまでお気軽にお問い合わせください。可能な範囲で順次対応いたします。"
+                        q: "どのサービスに対応していますか？",
+                        a: "現在は Discord / Stripe / YouTube / Instagram を中心に連携し、今後も順次対応プラットフォームを拡張予定です。各プラットフォームのAPIを使用して安全に連携し、必要最小限のデータのみを取得します。"
+                    },
+                    {
+                        q: "データの同期頻度は？",
+                        a: "連携時に初回同期を行い、その後は必要なタイミングで手動更新できます。自動更新（定期同期）は順次対応予定です。更新タイミングはデータ種別と各プラットフォームの仕様により異なります。"
                     },
                 ],
                 contactLabel: "お問い合わせ",
@@ -734,7 +834,7 @@ export const translations = {
             label: "The Solution",
             headline: "Scattered data,\nConnected in one view.",
             desc: "NELVO organizes and visualizes data across multiple channels, giving you a horizontal view of your operations.\nCheck only what you need for decisions without switching tools.",
-            compatible: "Supported platforms will expand sequentially. Use flexibly with your current environment.",
+            compatible: "Currently focusing on integrations with Discord / Stripe / YouTube / Instagram, with plans to expand supported platforms sequentially.",
             chart: {
                 retention: "Retention Rate",
             },
@@ -833,7 +933,7 @@ export const translations = {
                 },
                 {
                     q: "Which services can I integrate with?",
-                    a: "Currently, you can integrate with Discord, Stripe, YouTube, and Instagram. NELVO securely connects using each platform's API and retrieves only the minimum necessary data. Supported platforms will expand sequentially.",
+                    a: "Currently, we focus on integrations with Discord / Stripe / YouTube / Instagram, and we plan to expand supported platforms sequentially. NELVO securely connects using each platform's API and retrieves only the minimum necessary data.",
                 },
                 {
                     q: "How often is data synchronized?",
@@ -899,7 +999,7 @@ export const translations = {
             }
         },
         footer: {
-            copyright: "© 2025 NELVO. All rights reserved.",
+            copyright: "© 2026 NELVO. All rights reserved.",
             links: {
                 product: {
                     title: "Product",
@@ -933,59 +1033,101 @@ export const translations = {
         pages: {
             features: {
                 title: "Features",
-                description: "NELVO integrates community operational data scattered across multiple tools into a single dashboard where you can grasp the big picture at a glance. You can efficiently check the information needed for daily operational decisions and make data-driven decisions quickly. Each feature is designed to solve challenges that arise in actual operational settings, and anyone can easily master it with intuitive operations.",
+                description: "Unify Discord member growth, YouTube channel performance, Instagram engagement, and Stripe revenue data in one dashboard. Integrate operational data scattered across platforms to instantly detect contradictions like \"members are growing but churn is increasing,\" enabling data-driven decision-making.",
+                overview: {
+                    title: "Feature Summary",
+                    items: [
+                        {
+                            label: "Integrated Data",
+                            value: "Focusing on integrations with Discord / Stripe / YouTube / Instagram (supported platforms will expand sequentially)"
+                        },
+                        {
+                            label: "Key Metrics",
+                            value: "MRR / Churn rate / Retention rate / Active rate / Reach / Engagement, and more"
+                        },
+                        {
+                            label: "Applications",
+                            value: "Detect growth and revenue discrepancies (e.g., member increase × churn increase) and prioritize improvement actions"
+                        }
+                    ]
+                },
                 mainFeatures: [
                     {
                         title: "Data Integration",
-                        description: "Horizontally organize operational data scattered across multiple channels.",
+                        description: "View Discord, YouTube, and Instagram growth data alongside Stripe revenue data in a single dashboard.",
                         details: [
-                            "Automatically integrate operational data scattered across multiple platforms such as Discord, Stripe, YouTube, and Instagram",
-                            "Connect with each tool's API and synchronize data in real-time",
-                            "Cross-check data across different platforms",
-                            "Authentication credentials are securely managed, and only the minimum necessary data is retrieved",
+                            "Compare Discord member count and active rate with Stripe MRR (Monthly Recurring Revenue) to detect growth rate gaps",
+                            "Review YouTube subscriber count and engagement rate alongside Stripe churn rate to analyze content quality and revenue correlation",
+                            "Integrate Instagram reach and engagement metrics with Discord member changes to evaluate traffic source effectiveness",
+                            "Real-time synchronization via each platform's API eliminates manual aggregation",
                         ],
                     },
                     {
                         title: "Member Visualization",
-                        description: "Grasp community status such as join, retention, and churn.",
+                        description: "Visualize active rate, retention rate, and churn rate to detect churn risks early.",
                         details: [
-                            "Automatically classify new members, active members, and churned members",
-                            "Join dates, renewal dates, and cancellation dates are automatically recorded",
-                            "Check growth/decline status per community with graphs",
-                            "Visually understand when growth occurred and when churn increased",
+                            "Track retention rate in 6-month and 12-month intervals to identify segments with declining retention",
+                            "Compare new members and churned members over time to automatically detect \"growing but shrinking\" contradiction patterns",
+                            "Graph member changes per community to visually understand growth and churn periods",
+                            "Overlay active rate decline with churn rate increase timing to detect early warning signs of churn",
                         ],
                     },
                     {
                         title: "Revenue & Growth Tracking",
-                        description: "Check numerical changes together to decide the next move.",
+                        description: "Track revenue metrics like MRR, LTV, and churn rate to evaluate growth quality.",
                         details: [
-                            "Automatically calculate important revenue metrics such as MRR (Monthly Recurring Revenue), monthly sales, and LTV (Customer Lifetime Value)",
-                            "Track numerical changes over time",
-                            "Visualize retention rate trends in 6-month and 12-month units",
-                            "Segment performance analysis (Returning, VIP, At Risk, etc.)",
+                            "Review MRR (Monthly Recurring Revenue) trends alongside churn rate to detect \"revenue is growing but churn is also increasing\" issues",
+                            "Calculate LTV (Customer Lifetime Value) by segment to identify high-value user characteristics and optimize strategies",
+                            "Judge revenue quality decline when retention rate drops over 6-month or 12-month periods",
+                            "Compare performance of Returning / VIP / At Risk segments to decide priority actions",
                         ],
                     },
                     {
                         title: "Today View",
-                        description: "Simply display only the changes you need to see today.",
+                        description: "Check today's new members, churns, and renewals at a glance to detect changes requiring immediate action.",
                         details: [
-                            "Check new members, churned members, and renewed members at a glance",
-                            "Streamline daily operational tasks",
-                            "Focus only on information needed for decisions without being distracted by unnecessary information",
-                            "Simple interface that anyone can operate without confusion, even on first use",
+                            "Compare today's new members with churned members and alert if churned members are abnormally high",
+                            "Monitor renewal changes to evaluate renewal strategy effectiveness within the same day",
+                            "Review today's metric changes across Discord, YouTube, and Instagram side-by-side to detect platform-specific anomalies",
+                            "Cross-reference today's Stripe revenue with each platform's activity to identify revenue-driving actions",
                         ],
                     },
                 ],
                 analytics: {
                     title: "Analytics Dashboard",
-                    description: "The Analytics Dashboard provides detailed analysis features, enabling advanced analysis such as retention rate trends, revenue metric tracking, and segment performance analysis. You can also use multi-community comparison graphs and cohort analysis (Retention Heatmap) of join month × retention rate.",
-                    description2: "These analysis features enable data-driven operational decisions and achieve highly reproducible decision-making that doesn't rely on intuition or experience. You can gain insights to maximize growth speed and profitability.",
+                    description: "Visualize operational discrepancies through multi-community comparison graphs, cohort analysis (Retention Heatmap), and trend analysis.",
+                    description2: "Comparison analysis detects \"Community A is growing while B is stagnant.\" Cohort analysis reveals issues like \"March 2024 joiners have unusually low retention.\" Trend analysis enables early detection of quality decline such as \"churn rate is rising but MRR is flat.\"",
                     highlights: [
-                        "Multi-community comparison graphs",
-                        "Cohort analysis (Join Month × Retention Rate Heatmap)",
-                        "Data-driven operational decisions",
-                        "Insights to maximize growth speed and profitability",
+                        "Multi-community comparison graphs: Compare growth rate, retention rate, and churn rate side-by-side to verify strategy effectiveness",
+                        "Cohort analysis (Join Month × Retention Rate Heatmap): Identify churn patterns of specific join cohorts and optimize strategy timing",
+                        "Trend analysis: Detect early changes in growth quality from MRR, churn rate, and retention rate trends",
+                        "Segment performance: Compare characteristics of high-retention and high-churn segments to develop improvement strategies",
                     ],
+                },
+                faq: {
+                    title: "Frequently Asked Questions",
+                    items: [
+                        {
+                            q: "What data do you collect?",
+                            a: "From Discord: member count, active rate, join dates. From Stripe: MRR, churn rate, LTV, subscription status. From YouTube: subscriber count, view count, engagement rate, revenue data. From Instagram: follower count, reach, engagement rate. We do not collect authentication credentials and only handle the minimum necessary operational data."
+                        },
+                        {
+                            q: "Can I disconnect integrations?",
+                            a: "Yes, you can disconnect integrations anytime from the settings page. Historical data remains stored, but new data collection stops. When reconnecting, you can continue viewing data from before disconnection."
+                        },
+                        {
+                            q: "Is my data secure?",
+                            a: "We use OAuth authentication and manage credentials securely with encryption. Platform APIs only request minimum necessary permissions, and collected data is transmitted via SSL/TLS encryption. We also conduct regular security audits."
+                        },
+                        {
+                            q: "How often is data synchronized?",
+                            a: "We primarily use real-time synchronization via each platform's webhooks and APIs to immediately reflect events like new members, churns, and renewals. Some metrics (such as YouTube engagement rate) are updated once per day."
+                        },
+                        {
+                            q: "Who is this for?",
+                            a: "Designed for creators and community operators managing communities across multiple platforms like Discord, YouTube, and Instagram, while handling subscription revenue with Stripe. Especially recommended for those facing challenges like \"members are growing but revenue isn't\" or \"I'm unsure which strategies are effective.\""
+                        }
+                    ]
                 },
                 footerCta: "For pricing plans, please check",
                 footerCtaLink: "here",
@@ -993,68 +1135,122 @@ export const translations = {
             },
             integrations: {
                 title: "Integrations",
-                description: "NELVO integrates with major community management services and payment services, consolidating operational data scattered across multiple platforms. It securely connects with each platform's API and synchronizes data in real-time, eliminating the need for manual aggregation work. Supported platforms will expand sequentially, and you can use them flexibly according to your current operational environment.",
+                description: "NELVO integrates operational data scattered across multiple platforms, allowing you to view everything on one dashboard. After connecting, an initial sync runs, and you can refresh data manually as needed. Currently focusing on integrations with Discord / Stripe / YouTube / Instagram, with plans to expand supported platforms sequentially.",
+                overview: {
+                    title: "Integration Summary",
+                    items: [
+                        {
+                            label: "Supported Platforms",
+                            value: "Focusing on integrations with Discord / Stripe / YouTube / Instagram (supported platforms will expand sequentially)"
+                        },
+                        {
+                            label: "Data Retrieved",
+                            value: "Discord: Member count / Active rate / Join & Leave dates"
+                        },
+                        {
+                            label: "",
+                            value: "Stripe: MRR / Churn rate / LTV / Subscription status"
+                        },
+                        {
+                            label: "",
+                            value: "YouTube: Subscriber count / View count / Engagement"
+                        },
+                        {
+                            label: "",
+                            value: "Instagram: Follower count / Reach / Engagement"
+                        },
+                        {
+                            label: "Applications",
+                            value: "Detect growth and revenue discrepancies to identify priority improvement actions"
+                        }
+                    ]
+                },
                 platforms: [
                     {
                         name: "Discord",
-                        description: "Discord is a communication tool used by many communities. By integrating NELVO with Discord, you can automatically retrieve server member information, join dates, activity status, and more, and check them on the dashboard.",
+                        description: "Retrieve Discord member count, active rate, and join dates to compare with Stripe MRR (Monthly Recurring Revenue), enabling detection of discrepancies between member growth rate and revenue growth rate.",
                         details: [
-                            "Securely connect using Discord's OAuth authentication",
-                            "Request only the minimum necessary permissions",
-                            "Member personal information is appropriately protected",
-                            "Integration setup is simple and can be completed in minutes",
+                            "Data Retrieved: Member count, active rate, join dates, churn rate",
+                            "Metrics: Active rate, Retention rate, Member growth rate",
+                            "Decision Making: If active rate is declining while members are increasing, identify new member retention as an issue",
+                            "Authentication & Permissions: OAuth authentication, etc. Only requests minimum necessary permissions (member information viewing only)",
                         ],
                     },
                     {
-                        name: "Patreon",
-                        description: "Patreon is a platform where creators can receive ongoing support from fans. By integrating NELVO with Patreon, you can automatically retrieve subscription information, member join/renewal/cancellation status, revenue data, and more.",
+                        name: "Instagram",
+                        description: "Retrieve Instagram follower count, Reach, and engagement rate to cross-reference with Discord traffic sources, enabling discovery of issues such as \"SNS traffic exists but Discord participation rate is low.\"",
                         details: [
-                            "Synchronize data in real-time through Patreon's API",
-                            "Retrieve subscription level information",
-                            "Check member counts for different plans",
-                            "Use for revenue structure analysis and plan design optimization",
+                            "Data Retrieved: Follower count, Reach, engagement rate, story views, post performance",
+                            "Metrics: Follower growth rate, Reach, Engagement rate",
+                            "Decision Making: If Reach is increasing but Discord new members aren't, identify need to optimize traffic sources",
+                            "Authentication & Permissions: Uses Instagram Graph API, etc. OAuth authentication for read-only account information and insights",
+                        ],
+                    },
+                    {
+                        name: "YouTube",
+                        description: "Retrieve YouTube subscriber count, view count, engagement rate, and revenue data to integrate with Discord member changes and Stripe MRR for analysis. Detect discrepancies such as \"content is growing but revenue isn't catching up.\"",
+                        details: [
+                            "Data Retrieved: Channel subscriber count, view count, engagement rate, revenue data, video performance",
+                            "Metrics: Subscriber growth rate, Engagement rate, Revenue, View count",
+                            "Decision Making: If subscriber count is growing but engagement rate is declining, identify need to review content quality",
+                            "Authentication & Permissions: Uses YouTube Data API, etc. OAuth authentication for read-only channel information access",
                         ],
                     },
                     {
                         name: "Stripe",
-                        description: "Stripe is a service that provides online payment processing. By integrating NELVO with Stripe, you can automatically retrieve payment information, customer data, subscription status, and more. Important metrics such as MRR (Monthly Recurring Revenue) and LTV (Customer Lifetime Value) are also automatically calculated.",
+                        description: "Automatically calculate Stripe MRR, Churn rate, and LTV (Customer Lifetime Value) to cross-reference with Discord or YouTube growth data, enabling early detection of \"growth but declining revenue\" issues.",
                         details: [
-                            "Retrieve payment events in real-time using Stripe's Webhook",
-                            "Automatically record customer payment status and cancellation/renewal timing",
-                            "Streamline revenue management",
-                            "Automatically calculate important metrics such as MRR and LTV",
-                        ],
-                    },
-                    {
-                        name: "Skool",
-                        description: "Skool is an online community platform. By integrating NELVO with Skool, you can automatically retrieve community member information, join dates, activity status, and more. You can check Skool's community operational data integrated with data from other platforms.",
-                        details: [
-                            "Analyze operational status that's hard to see with Skool alone by combining it with data from other platforms",
-                            "Manage multiple community platforms cross-functionally",
-                            "Grasp overall operational status",
-                            "Check data in an integrated manner",
+                            "Data Retrieved: MRR, Churn rate, LTV, subscription status, customer payment history",
+                            "Metrics: MRR (Monthly Recurring Revenue), Churn rate, Retention rate, LTV (Customer Lifetime Value)",
+                            "Decision Making: If churn rate is rising while MRR is flat, identify accelerated churn despite new acquisitions and prioritize retention strategies",
+                            "Authentication & Permissions: Uses Stripe API keys and Webhooks, etc. Read-only access to payment information (does not process payments)",
                         ],
                     },
                 ],
                 security: {
                     title: "Integration Security",
-                    description: "NELVO ensures the highest level of security in integrations with each platform. It uses OAuth authentication, and authentication credentials are securely managed. We do not acquire authentication credentials used for integration and handle only the minimum necessary data.",
+                    description: "NELVO implements appropriate security measures for integrations with each platform. We use OAuth authentication, etc., and manage credentials with encryption. We do not acquire authentication credentials used for integration and handle only the minimum necessary data.",
                     details: [
-                        "All data communication is encrypted via SSL/TLS",
-                        "Managed in a secure environment not exposed to the outside",
-                        "Regular security audits are conducted",
-                        "Customer data protection is our top priority",
+                        "Data communication encrypted via SSL/TLS",
+                        "Credentials encrypted and managed in a secure environment",
+                        "Security reviews conducted (within scope feasible for individual operations)",
+                        "Retrieved data limited to what's necessary for operational decisions",
                     ],
                 },
                 future: {
                     title: "Future Expansion Plans",
-                    description: "Supported platforms will expand sequentially. You can use them flexibly according to your current operational environment. We also accept requests for new platform additions and will prioritize adding platforms that many users request.",
+                    description: "Supported platforms will expand sequentially. You can use them flexibly according to your current operational environment. We also accept requests for new platform additions and will prioritize adding platforms that many users request. Please send your requests to support@nelvo.co.",
                     details: [
                         "Integration setup can be easily executed with an intuitive interface",
                         "Connecting and disconnecting each platform can be completed with a few clicks",
                         "Flexibly change integrations according to changes in your operational environment",
-                        "Prioritize adding platforms based on user requests",
+                        "Prioritize adding platforms based on user requests (send requests to support@nelvo.co)",
                     ],
+                },
+                faq: {
+                    title: "Frequently Asked Questions",
+                    items: [
+                        {
+                            q: "What permissions are required for integration?",
+                            a: "We only request the minimum necessary permissions for each platform. Discord requires member information viewing, Stripe requires read-only access to payment information (we do not process payments), and YouTube and Instagram require read-only access to channel/account information and insights. We use OAuth authentication, etc., and manage credentials with encryption."
+                        },
+                        {
+                            q: "Can I disconnect integrations?",
+                            a: "Yes, you can disconnect integrations anytime from the settings page. Historical data remains stored, but new data collection stops. When reconnecting, you can continue viewing data from before disconnection."
+                        },
+                        {
+                            q: "Is integration data saved?",
+                            a: "Even after disconnecting, previously retrieved data is securely stored. When reconnecting, you can continue viewing data from before disconnection and perform time-series analysis. If you wish to delete data, please contact us at support@nelvo.co."
+                        },
+                        {
+                            q: "How often is data synchronized?",
+                            a: "NELVO runs an initial sync right after you connect a platform. After that, you can refresh data on demand. Scheduled updates will be added in the future (update frequency varies by data type and platform specifications)."
+                        },
+                        {
+                            q: "Will supported platforms increase in the future?",
+                            a: "Yes, supported platforms will expand sequentially. Currently, we focus on integrations with Discord / Stripe / YouTube / Instagram, but we will prioritize adding platforms that many users request. Please send your requests to support@nelvo.co."
+                        }
+                    ]
                 },
                 footerCta: "For pricing plans, please check",
                 footerCtaLink: "here",
@@ -1062,72 +1258,60 @@ export const translations = {
             },
             useCases: {
                 title: "Use Cases",
-                description: "In community operations, the reason operational decisions slow down is often a structural problem, not a matter of ability. NELVO solves these structural challenges and enables rapid data-driven decision-making. Here, we introduce the main challenges that NELVO solves and their use cases.",
+                description: "In community operations, numbers being \"fragmented by tool\" delays decision-making. NELVO integrates operational data across multiple platforms, creating a state where important changes and priority actions can be grasped at a glance. We focus on integrations with Discord / Stripe / YouTube / Instagram first, with plans to expand supported platforms sequentially. Here, we introduce typical use cases where NELVO is particularly effective.",
                 cases: [
                     {
-                        title: "Solving the Challenge of Decisions Relying on Intuition",
-                        description: "Because evidence numbers are scattered everywhere, reliance on experience and gut feeling increases. This causes decisions to lose reproducibility and results to become unstable. By using NELVO, you can integrate operational data scattered across multiple tools and make decisions based on clear evidence.",
+                        title: "Switch Decisions from \"Intuition\" to \"Numbers\"",
+                        description: "When key metrics are scattered, decisions tend to rely on experience and intuition. NELVO crosses data from multiple tools and aligns decision grounds on one screen.",
                         details: [
-                            "Check member count changes and revenue changes over time",
-                            "Make decisions based on data, not intuition",
-                            "Retention rate trends and segment performance analysis",
-                            "Quantitatively evaluate which measures were effective",
-                            "Achieve highly reproducible operations",
+                            "Track growth, churn, and revenue changes over time",
+                            "Instantly detect metric discrepancies (e.g., member increase × revenue decrease)",
+                            "Compare and improve strategy effectiveness with data",
                         ],
                     },
                     {
-                        title: "Solving the Challenge of Information Fragmented by Tool",
-                        description: "Operational data is scattered across SNS, payments, and community tools, so just grasping the current status takes time, causing you to miss critical decision timing. NELVO automatically integrates this data, allowing you to grasp the big picture on a single screen.",
+                        title: "Eliminate Tool Fragmentation and Grasp the \"Big Picture\" at Once",
+                        description: "When data is fragmented across Discord, payments, SNS, etc., just checking the big picture consumes time. NELVO integrates the situation and visualizes only the necessary information.",
                         details: [
-                            "Cross-check Discord member information, Stripe payment data, YouTube channel data, Instagram engagement data, and more",
-                            "Efficiently check only the information needed for decisions without switching between tools",
-                            "Significantly improve decision-making speed",
-                            "Grasp the big picture on a single screen",
+                            "Check Discord / Stripe / YouTube / Instagram metrics side by side",
+                            "Reduce places to check and accelerate decision speed",
+                            "Share the same numbers with your team",
                         ],
                     },
                     {
-                        title: "Solving the Challenge of Re-aggregating Every Time",
-                        description: "Every time you share or report to the team, you have to manually re-collect data. This delay accumulates, pushing decision-making further and further back. With NELVO, data is automatically aggregated, significantly reducing preparation time for sharing and reporting.",
+                        title: "Stop \"Re-aggregating\" Every Time You Share",
+                        description: "When manual aggregation occurs every time you report or share, operational decisions get pushed back. NELVO minimizes the check → share process.",
                         details: [
-                            "Check the latest operational status on the dashboard",
-                            "Share necessary information immediately",
-                            "Graphs and numbers are automatically updated",
-                            "No manual aggregation work required",
-                            "Focus on more important decision-making and strategy planning",
+                            "Check the latest data on the dashboard immediately",
+                            "Quickly present numbers and changes for sharing",
+                            "Reduce unnecessary aggregation work",
                         ],
                     },
                     {
-                        title: "Streamlining Daily Operational Checks",
-                        description: "The Today View feature simply displays only the important changes you need to check today. You can check new members, churned members, and renewed members at a glance, streamlining daily operational tasks. You can focus only on information needed for decisions without being distracted by unnecessary information.",
+                        title: "Complete Daily Operational Checks on \"One Screen\"",
+                        description: "The more numbers you need to check, the more daily operations become routine work. NELVO organizes and displays only the changes you need to see today.",
                         details: [
-                            "Check new members, churned members, and renewed members at a glance",
-                            "Streamline daily operational tasks",
-                            "Significantly reduce daily operational check time",
-                            "Spend time on more important decision-making and strategy planning",
-                            "Simple interface that anyone can operate without confusion, even on first use",
+                            "List important events such as new/churn/renewal",
+                            "Detect anomalies and sudden changes early",
+                            "Focus on information needed for decision-making",
                         ],
                     },
                     {
-                        title: "Achieving Data-Driven Operations",
-                        description: "NELVO's Analytics features enable advanced analysis such as retention rate trends, revenue metric tracking, and segment performance analysis. These analysis features enable data-driven operational decisions and achieve highly reproducible decision-making that doesn't rely on intuition or experience.",
+                        title: "Analyze Growth, Retention, and Revenue Together",
+                        description: "Whether you're growing or improving profitability requires looking at \"composite metrics\" to avoid misjudgment. NELVO evaluates operations numerically.",
                         details: [
-                            "Multi-community comparison graphs",
-                            "Cohort analysis (Join Month × Retention Rate Heatmap)",
-                            "Data-driven operational decisions",
-                            "Insights to maximize growth speed and profitability",
-                            "Accelerate community growth",
+                            "Track retention rate, churn rate, and revenue metrics together",
+                            "Compare by segment (Returning/VIP, etc.)",
+                            "Identify growth factors and deceleration factors",
                         ],
                     },
                     {
-                        title: "Improving Team Information Sharing",
-                        description: "NELVO's dashboard can be shared by the entire team, allowing everyone to check operational status from the same perspective. This eliminates information asymmetry and enables consistent decision-making across the entire team.",
+                        title: "Standardize Team Information Sharing",
+                        description: "When numbers are interpreted differently by different people, discussions don't align and decisions are delayed. NELVO aligns everyone with common metrics and a common screen.",
                         details: [
-                            "Everyone checks operational status from the same perspective",
-                            "Information asymmetry is eliminated",
-                            "Consistent decision-making across the entire team is possible",
-                            "Reduce preparation time for reports and sharing",
-                            "Data-driven discussions become possible",
-                            "Improve overall team productivity",
+                            "Check the same numbers on the same screen",
+                            "Reduce perception gaps and move discussions forward",
+                            "Shorten report preparation time",
                         ],
                     },
                 ],
@@ -1137,7 +1321,7 @@ export const translations = {
             },
             pricing: {
                 title: "Pricing",
-                description: "NELVO offers two pricing plans tailored to your community's size and operational goals. The Basic plan is an entry-level plan for those who want to establish the foundation of operations. The Pro plan is for those who want to make data-driven decisions and maximize growth speed and profitability. Both plans can be changed or canceled freely at any time, and you can flexibly change plans according to your community's growth.",
+                description: "NELVO offers two monthly pricing plans designed for community operators and creators — Basic ($15/month) and Pro ($49/month). You can choose the plan that fits your size and operational needs, and track key metrics like MRR, retention, and churn by integrating data from Discord, Stripe, YouTube, and Instagram. Plans can be upgraded, downgraded, or canceled at any time.",
                 plans: {
                     basic: {
                         title: "Basic Plan",
@@ -1172,6 +1356,27 @@ export const translations = {
                         { name: "Segment Performance Analysis", basic: false, pro: true },
                         { name: "Cohort Analysis (Retention Heatmap)", basic: false, pro: true },
                     ],
+                },
+                planSelection: {
+                    title: "Which Plan Should You Choose?",
+                    basic: {
+                        title: "Basic Plan is for You If",
+                        items: [
+                            "You run a small-scale community",
+                            "You want to integrate data from multiple tools first",
+                            "Basic operational checks (monitoring new, churned, and renewed members) are sufficient",
+                            "You're at the stage of establishing operational foundations",
+                        ],
+                    },
+                    pro: {
+                        title: "Pro Plan is for You If",
+                        items: [
+                            "You need full-scale analysis of MRR, Churn, Retention, and other metrics",
+                            "You want to integrate multiple services (4 or more)",
+                            "You want to leverage advanced analysis features like segment performance analysis and cohort analysis",
+                            "You want to accelerate data-driven decision-making",
+                        ],
+                    },
                 },
                 otherSections: [
                     {
@@ -1214,7 +1419,7 @@ export const translations = {
                     },
                     {
                         q: "Which services can I integrate with?",
-                        a: "Currently, you can integrate with Discord, Stripe, YouTube, and Instagram. NELVO securely connects using each platform's API and retrieves only the minimum necessary data. Supported platforms will expand sequentially."
+                        a: "Currently, we focus on integrations with Discord / Stripe / YouTube / Instagram, with plans to expand supported platforms sequentially. NELVO securely connects using each platform's API and retrieves only the minimum necessary data."
                     },
                     {
                         q: "How often is data synchronized?",

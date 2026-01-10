@@ -14,18 +14,18 @@ export const metadata: Metadata = {
       },
   },
   openGraph: {
-    title: "Integrations - NELVO | Unified Dashboard for Creators & Communities",
+    title: "NELVO Integrations | Connect your stack in minutes",
     description: "Connect your favorite platforms with NELVO. Integrate Discord, Stripe, YouTube, Instagram and more. All your community data in one unified dashboard.",
     url: "https://nelvo.co/en/integrations",
     siteName: "NELVO",
     type: "website",
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "NELVO Integrations" }],
+    images: [{ url: "https://nelvo.co/og/og-integrations-en.png", width: 1200, height: 630, alt: "NELVO Integrations" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Integrations - NELVO | Unified Dashboard for Creators & Communities",
+    title: "NELVO Integrations | Connect your stack in minutes",
     description: "Connect your favorite platforms with NELVO. Integrate Discord, Stripe, YouTube, Instagram and more. All your community data in one unified dashboard.",
-    images: ["/og.png"],
+    images: ["https://nelvo.co/og/og-integrations-en.png"],
   },
   robots: {
     index: true,

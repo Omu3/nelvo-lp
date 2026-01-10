@@ -43,17 +43,23 @@ export function PricingPageContent() {
         <div className="container mx-auto px-4 sm:px-6 md:px-12 max-w-4xl">
           <PageNavigation />
           <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-900 mb-4">
-            {pageT.title}
+            {language === 'ja' ? 'NELVO 料金プラン｜Basic・Proの価格と機能比較、選び方' : pageT.title}
           </h1>
           <p className="text-lg text-gray-600 leading-relaxed mb-6">
-            {pageT.description}
+            {language === 'ja' 
+              ? 'NELVOは2つの料金プラン（Basic 月額¥2,980・Pro 月額¥6,980）を提供しています。Discord/Stripe/YouTube/Instagramの運営データを統合し、MRR・継続率・解約率を運営ダッシュボードで可視化します。プラン変更・解約はいつでも可能です。'
+              : pageT.description
+            }
           </p>
           <TableOfContents
             items={[
-              { label: pageT.plans.basic.title, href: '#basic-plan' },
-              { label: pageT.plans.pro.title, href: '#pro-plan' },
+              { label: language === 'ja' ? '料金プラン（Basic/Pro）' : pageT.plans.basic.title, href: '#pricing-plans' },
               { label: pageT.comparison.title, href: '#comparison' },
-              ...pageT.otherSections.map((section, i) => ({ label: section.title, href: `#section-${i + 1}` })),
+              ...(pageT.planSelection ? [{ label: pageT.planSelection.title, href: '#plan-selection' }] : []),
+              ...pageT.otherSections.map((section, i) => {
+                const sectionId = i === 0 ? 'plan-change' : i === 1 ? 'supported-platforms' : `section-${i + 1}`;
+                return { label: section.title, href: `#${sectionId}` };
+              }),
               { label: language === 'ja' ? 'よくある質問' : 'FAQ', href: '#faq' },
             ]}
           />
@@ -61,8 +67,11 @@ export function PricingPageContent() {
       </div>
 
       {/* Pricing Plans */}
-      <section className="py-8 md:py-12 bg-white">
+      <section id="pricing-plans" className="py-8 md:py-12 bg-white scroll-mt-24">
         <div className="container mx-auto px-4 sm:px-6 md:px-12 max-w-4xl">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
+            {language === 'ja' ? '料金プラン（Basic/Pro）' : 'Pricing Plans'}
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {pricingSections.map((plan, index) => {
               const planId = index === 0 ? 'basic-plan' : 'pro-plan';
@@ -74,9 +83,9 @@ export function PricingPageContent() {
                     </div>
                   )}
                   <div className="mb-6">
-                    <h2 className="text-2xl font-bold text-gray-900 mb-2">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
                       {plan.title}
-                    </h2>
+                    </h3>
                     <div className="flex items-baseline gap-1 mb-4">
                       <span className="text-4xl font-extrabold tracking-tight text-gray-900">{plan.price}</span>
                       <span className="text-base text-gray-500 font-medium">{plan.period}</span>
@@ -124,7 +133,7 @@ export function PricingPageContent() {
       <section id="comparison" className="py-8 md:py-12 bg-gray-50 scroll-mt-24">
         <div className="container mx-auto px-4 sm:px-6 md:px-12 max-w-4xl">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
-            {pageT.comparison.title}
+            {language === 'ja' ? 'プラン比較（機能一覧）' : pageT.comparison.title}
           </h2>
           <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
             <div className="overflow-x-auto">
@@ -163,12 +172,53 @@ export function PricingPageContent() {
         </div>
       </section>
 
+      {/* Plan Selection Section */}
+      {pageT.planSelection && (
+        <section id="plan-selection" className="py-8 md:py-12 bg-white scroll-mt-24">
+          <div className="container mx-auto px-4 sm:px-6 md:px-12 max-w-4xl">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
+              {pageT.planSelection.title}
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="bg-gray-50 rounded-xl border border-gray-200 p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">
+                  {pageT.planSelection.basic.title}
+                </h3>
+                <ul className="space-y-2.5">
+                  {pageT.planSelection.basic.items.map((item, index) => (
+                    <li key={index} className="flex items-start gap-2.5">
+                      <div className="w-1.5 h-1.5 rounded-full bg-gray-400 mt-2 flex-shrink-0" />
+                      <span className="text-sm text-gray-600 leading-relaxed">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="bg-blue-50 rounded-xl border border-blue-200 p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">
+                  {pageT.planSelection.pro.title}
+                </h3>
+                <ul className="space-y-2.5">
+                  {pageT.planSelection.pro.items.map((item, index) => (
+                    <li key={index} className="flex items-start gap-2.5">
+                      <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
+                      <span className="text-sm text-gray-600 leading-relaxed">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Other Sections */}
-      <section className="py-8 md:py-12 bg-white">
+      <section className="py-8 md:py-12 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 md:px-12 max-w-4xl">
           <div className="space-y-8">
-            {pageT.otherSections.map((section, index) => (
-              <div key={index} id={`section-${index + 1}`} className="bg-gray-50 rounded-xl border border-gray-200 p-6 scroll-mt-24">
+            {pageT.otherSections.map((section, index) => {
+              const sectionId = index === 0 ? 'plan-change' : index === 1 ? 'supported-platforms' : `section-${index + 1}`;
+              return (
+              <div key={index} id={sectionId} className="bg-white rounded-xl border border-gray-200 p-6 scroll-mt-24">
                 <h2 className="text-xl font-bold text-gray-900 mb-4">
                   {section.title}
                 </h2>
@@ -184,7 +234,8 @@ export function PricingPageContent() {
                   ))}
                 </ul>
               </div>
-            ))}
+            );
+            })}
           </div>
         </div>
       </section>
@@ -193,7 +244,7 @@ export function PricingPageContent() {
       <section id="faq" className="py-8 md:py-12 bg-gray-50 scroll-mt-24">
         <div className="container mx-auto px-4 sm:px-6 md:px-12 max-w-4xl">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
-            {t.faq.title}
+            {language === 'ja' ? 'よくある質問（料金/請求/解約/データ/セキュリティ）' : t.faq.title}
           </h2>
           <div className="space-y-3">
             {t.faq.items.map((item: any, index: number) => (
@@ -241,11 +292,152 @@ export function PricingPageContent() {
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
           </div>
-          <NextPageLink href="/use-cases" label={language === 'ja' ? 'Use Cases を見る →' : 'View Use Cases →'} />
+          <div className="mt-6 flex flex-wrap justify-center gap-4">
+            <Link href={getLocalizedPath('/features', language)} className="text-[#214BCE] hover:text-[#6C2BD9] font-medium underline underline-offset-2">
+              {language === 'ja' ? '機能一覧を見る（Features）' : 'View Features →'}
+            </Link>
+            <span className="text-gray-300">|</span>
+            <Link href={getLocalizedPath('/integrations', language)} className="text-[#214BCE] hover:text-[#6C2BD9] font-medium underline underline-offset-2">
+              {language === 'ja' ? '対応プラットフォームを見る' : 'View Integrations →'}
+            </Link>
+            <span className="text-gray-300">|</span>
+            <Link href={getLocalizedPath('/use-cases', language)} className="text-[#214BCE] hover:text-[#6C2BD9] font-medium underline underline-offset-2">
+              {language === 'ja' ? 'Use Cases を見る' : 'View Use Cases →'}
+            </Link>
+          </div>
         </div>
       </section>
 
       <Footer />
+
+      {/* Structured Data - FAQ JSON-LD */}
+      {language === 'ja' && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": t.faq.items.map((item: any) => ({
+                "@type": "Question",
+                "name": item.q,
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": item.a
+                }
+              }))
+            })
+          }}
+        />
+      )}
+
+      {language === 'en' && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": t.faq.items.map((item: any) => ({
+                "@type": "Question",
+                "name": item.q,
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": item.a
+                }
+              }))
+            })
+          }}
+        />
+      )}
+
+      {/* Structured Data - SoftwareApplication JSON-LD */}
+      {language === 'ja' && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              "name": "NELVO",
+              "applicationCategory": "BusinessApplication",
+              "description": "Discord/Stripe/YouTube/Instagramの運営データを統合し、MRR・継続率・解約率を運営ダッシュボードで可視化するコミュニティ運営ダッシュボード",
+              "url": "https://nelvo.co/pricing",
+              "brand": {
+                "@type": "Brand",
+                "name": "NELVO"
+              },
+              "offers": [
+                {
+                  "@type": "Offer",
+                  "name": "Basicプラン",
+                  "price": 2980,
+                  "priceCurrency": "JPY",
+                  "billingDuration": "P1M",
+                  "description": "最大3サービスまで連携可能なエントリープラン"
+                },
+                {
+                  "@type": "Offer",
+                  "name": "Proプラン",
+                  "price": 6980,
+                  "priceCurrency": "JPY",
+                  "billingDuration": "P1M",
+                  "description": "最大7サービスまで連携可能で高度な分析機能を利用できるプラン"
+                }
+              ]
+            })
+          }}
+        />
+      )}
+
+      {language === 'en' && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              "name": "NELVO",
+              "applicationCategory": "BusinessApplication",
+              "operatingSystem": "Web",
+              "description": "Unified dashboard for community operations across Discord, Stripe, YouTube, and Instagram.",
+              "url": "https://nelvo.co/en/pricing",
+              "brand": {
+                "@type": "Brand",
+                "name": "NELVO"
+              },
+              "offers": [
+                {
+                  "@type": "Offer",
+                  "name": "Basic Plan",
+                  "price": "15",
+                  "priceCurrency": "USD",
+                  "url": "https://nelvo.co/en/pricing#basic-plan",
+                  "priceSpecification": {
+                    "@type": "UnitPriceSpecification",
+                    "price": "15",
+                    "priceCurrency": "USD",
+                    "unitText": "MONTH"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "name": "Pro Plan",
+                  "price": "49",
+                  "priceCurrency": "USD",
+                  "url": "https://nelvo.co/en/pricing#pro-plan",
+                  "priceSpecification": {
+                    "@type": "UnitPriceSpecification",
+                    "price": "49",
+                    "priceCurrency": "USD",
+                    "unitText": "MONTH"
+                  }
+                }
+              ]
+            })
+          }}
+        />
+      )}
     </main>
   );
 }

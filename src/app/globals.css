@@ -26,36 +26,61 @@ html {
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  background: var(--background) !important;
+  background-color: var(--background) !important;
+  background-image: none !important;
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Remove diagonal dotted line pattern for English pages */
+/* Remove diagonal dotted line pattern and background patterns for all pages */
+body,
+main,
+section,
 html[lang="en"] body,
 html[lang="en"] main,
+html[lang="en"] section,
+html[lang="ja"] body,
+html[lang="ja"] main,
+html[lang="ja"] section,
 body[data-language="en"],
-main[data-language="en"] {
+main[data-language="en"],
+section[data-language="en"],
+body[data-language="ja"],
+main[data-language="ja"],
+section[data-language="ja"] {
   background-image: none !important;
-  background: var(--background) !important;
-  background-color: var(--background) !important;
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  background-size: auto !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
 }
 
 /* Remove any repeating patterns or diagonal lines from pseudo-elements */
+body::before,
+body::after,
+main::before,
+main::after,
+html[lang="en"] body::before,
+html[lang="en"] body::after,
+html[lang="en"] main::before,
+html[lang="en"] main::after,
+html[lang="ja"] body::before,
+html[lang="ja"] body::after,
+html[lang="ja"] main::before,
+html[lang="ja"] main::after,
 body[data-language="en"]::before,
 body[data-language="en"]::after,
 main[data-language="en"]::before,
-main[data-language="en"]::after {
+main[data-language="en"]::after,
+body[data-language="ja"]::before,
+body[data-language="ja"]::after,
+main[data-language="ja"]::before,
+main[data-language="ja"]::after {
   display: none !important;
   content: none !important;
-}
-
-/* Force white background for English pages */
-body[data-language="en"],
-main[data-language="en"] {
-  background: #ffffff !important;
-  background-color: #ffffff !important;
   background-image: none !important;
 }
 
@@ -286,4 +311,19 @@ main[data-language="en"] {
     transform: none !important;
     transition: none !important;
   }
+}
+
+/* Line Clamp Utility (for older Tailwind versions or fallback) */
+.clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }

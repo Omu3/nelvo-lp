@@ -11,17 +11,18 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { getLocalizedPath } from '@/lib/url';
 
 const iconMap = {
-  '判断が感覚に寄ってしまう課題の解決': Lightbulb,
+  '判断を「感覚」から「数字」へ切り替える': Lightbulb,
+  'ツール分断をなくし「全体像」を一括把握': Layers,
+  '共有のたびに「集計し直す」をやめる': Clock,
+  '毎日の運営チェックを「1画面」で完了': TrendingUp,
+  '成長・継続率・収益をまとめて分析': BarChart3,
+  'チームの情報共有を「標準化」する': Users,
+  // English fallbacks
   'Solving the Challenge of Decisions Relying on Intuition': Lightbulb,
-  '情報がツールごとに分断される課題の解決': Layers,
   'Solving the Challenge of Information Fragmented by Tool': Layers,
-  '共有のたびに集計し直す課題の解決': Clock,
   'Solving the Challenge of Re-aggregating Every Time': Clock,
-  '日々の運営チェックの効率化': TrendingUp,
   'Streamlining Daily Operational Checks': TrendingUp,
-  'データドリブンな運営の実現': BarChart3,
   'Achieving Data-Driven Operations': BarChart3,
-  'チームでの情報共有の改善': Users,
   'Improving Team Information Sharing': Users,
 };
 
@@ -57,7 +58,7 @@ export function UseCasesPageContent() {
       </div>
 
       {/* Use Cases Grid */}
-      <section className="py-8 md:py-12 bg-white">
+      <section className="usecases-section py-8 md:py-12 bg-white">
         <div className="container mx-auto px-4 sm:px-6 md:px-12 max-w-4xl">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {pageT.cases.map((useCase, index) => {
@@ -71,31 +72,41 @@ export function UseCasesPageContent() {
                 indigo: "bg-indigo-50 text-indigo-600 border-indigo-100",
                 teal: "bg-teal-50 text-teal-600 border-teal-100",
               };
+              const bulletColorClasses = {
+                orange: "bg-orange-500",
+                blue: "bg-blue-500",
+                purple: "bg-purple-500",
+                green: "bg-green-500",
+                indigo: "bg-indigo-500",
+                teal: "bg-teal-500",
+              };
 
               return (
-                <div key={index} id={`use-case-${index + 1}`} className="bg-white rounded-xl border border-gray-200 p-6 hover:shadow-md hover:border-gray-300 transition-all duration-200 scroll-mt-24">
-                  <div className="flex items-start gap-4 mb-4">
-                    <div className={`p-2.5 rounded-lg ${colorClasses[color as keyof typeof colorClasses]} border flex-shrink-0`}>
-                      <Icon className="w-5 h-5" />
-                    </div>
-                    <div className="flex-1">
-                      <h2 className="text-xl font-bold text-gray-900 mb-3">
+                <div key={index} id={`use-case-${index + 1}`} className="bg-white rounded-xl border border-gray-200 p-6 hover:shadow-md hover:border-gray-300 transition-all duration-200 scroll-mt-24 flex flex-col h-full">
+                  <div className="flex-1 flex flex-col">
+                    <div className="flex items-start gap-4 mb-3">
+                      <div className={`p-2.5 rounded-lg ${colorClasses[color as keyof typeof colorClasses]} border flex-shrink-0`}>
+                        <Icon className="w-5 h-5" />
+                      </div>
+                      <h2 className="text-xl font-bold text-gray-900 flex-1">
                         {useCase.title}
                       </h2>
-                      <p className="text-sm text-gray-600 leading-relaxed mb-3">
+                    </div>
+                    <div className="min-h-[72px] md:min-h-[78px]">
+                      <p className="text-sm text-gray-600 leading-6 line-clamp-3 clamp-3">
                         {useCase.description}
                       </p>
                     </div>
                   </div>
 
-                  <ul className="space-y-2.5">
+                  <div className="mt-6 space-y-3">
                     {useCase.details.map((detail, detailIndex) => (
-                      <li key={detailIndex} className="flex items-start gap-2.5">
-                        <div className={`w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 ${color === 'orange' ? 'bg-orange-500' : color === 'blue' ? 'bg-blue-500' : color === 'purple' ? 'bg-purple-500' : color === 'green' ? 'bg-green-500' : color === 'indigo' ? 'bg-indigo-500' : 'bg-teal-500'}`} />
-                        <span className="text-sm text-gray-600 leading-relaxed">{detail}</span>
-                      </li>
+                      <div key={detailIndex} className="flex items-start gap-3">
+                        <span className={`mt-[9px] h-2 w-2 shrink-0 rounded-full ${bulletColorClasses[color as keyof typeof bulletColorClasses]}`} />
+                        <p className="text-sm leading-6 text-slate-700">{detail}</p>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
                 </div>
               );
             })}
