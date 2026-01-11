@@ -11,6 +11,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 import { useState } from 'react';
 import { getLocalizedPath } from '@/lib/url';
+import { trackEvent } from '@/lib/ga';
 
 export function PricingPageContent() {
   const { t, language } = useLanguage();
@@ -99,6 +100,13 @@ export function PricingPageContent() {
                     href={formUrl}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => {
+                      trackEvent('cta_click', {
+                        cta_text: t.pricing.plans[plan.badge ? 'pro' : 'basic'].cta,
+                        cta_location: plan.badge ? 'pricing_page_pro' : 'pricing_page_basic',
+                        destination_url: formUrl,
+                      });
+                    }}
                     className={`block text-center w-full py-3 rounded-full font-medium transition-colors mb-6 ${
                       plan.badge
                         ? 'bg-blue-600 text-white hover:bg-blue-700'

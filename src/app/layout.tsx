@@ -74,6 +74,8 @@ const websiteSchema = {
   },
 };
 
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-WJ1BV22RX1';
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -82,6 +84,22 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        {GA_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga-gtag" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_ID}', { anonymize_ip: true });
+              `}
+            </Script>
+          </>
+        )}
         <Script
           id="organization-schema"
           type="application/ld+json"

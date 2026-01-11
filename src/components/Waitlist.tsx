@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Check } from 'lucide-react';
+import { trackEvent } from '@/lib/ga';
 
 export function Waitlist() {
     const { t } = useLanguage();
@@ -11,6 +12,10 @@ export function Waitlist() {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         setSubmitted(true);
+        trackEvent('generate_lead', {
+            form_name: 'waitlist',
+            form_location: 'lp',
+        });
     };
 
     if (submitted) {

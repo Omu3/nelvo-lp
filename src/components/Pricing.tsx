@@ -3,6 +3,7 @@
 import { Reveal } from '@/components/ui/Reveal';
 import { Check } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { trackEvent } from '@/lib/ga';
 
 export function Pricing() {
     const { t, language } = useLanguage();
@@ -49,6 +50,13 @@ export function Pricing() {
                                     href={formUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
+                                    onClick={() => {
+                                        trackEvent('cta_click', {
+                                            cta_text: t.pricing.plans.basic.cta,
+                                            cta_location: 'pricing_basic',
+                                            destination_url: formUrl,
+                                        });
+                                    }}
                                     className="block text-center w-full py-3 rounded-full border border-gray-200 font-medium text-gray-900 hover:bg-gray-50 transition-colors mb-8"
                                 >
                                     {t.pricing.plans.basic.cta}
@@ -93,6 +101,13 @@ export function Pricing() {
                                     href={formUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
+                                    onClick={() => {
+                                        trackEvent('cta_click', {
+                                            cta_text: t.pricing.plans.pro.cta,
+                                            cta_location: 'pricing_pro',
+                                            destination_url: formUrl,
+                                        });
+                                    }}
                                     className="block text-center w-full py-3 rounded-full bg-blue-600 text-white font-medium hover:bg-blue-700 transition-colors mb-8 shadow-sm"
                                 >
                                     {t.pricing.plans.pro.cta}

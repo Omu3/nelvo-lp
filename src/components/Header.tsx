@@ -7,6 +7,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Globe } from 'lucide-react';
 import { getLocalizedPath, getBasePath, getLanguageFromPath } from '@/lib/url';
 import { usePathname, useRouter } from 'next/navigation';
+import { trackEvent } from '@/lib/ga';
 
 export function Header() {
     const { language, setLanguage, t } = useLanguage();
@@ -75,7 +76,14 @@ export function Header() {
                     variant="primary"
                     size="sm"
                     className="whitespace-nowrap text-xs px-3 py-2 h-auto md:text-sm md:px-4"
-                    onClick={() => window.open(formUrl, '_blank')}
+                    onClick={() => {
+                        trackEvent('cta_click', {
+                            cta_text: t.header.getStarted,
+                            cta_location: 'header',
+                            destination_url: formUrl,
+                        });
+                        window.open(formUrl, '_blank');
+                    }}
                 >
                     {t.header.getStarted}
                 </Button>

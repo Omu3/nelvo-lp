@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { ArrowRight, BarChart3, Users, CreditCard, Activity, Settings, Home, PieChart } from 'lucide-react';
 import { clsx } from 'clsx';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { trackEvent } from '@/lib/ga';
 
 export function Hero() {
     const { t, language } = useLanguage();
@@ -63,7 +64,14 @@ export function Hero() {
                             {t.hero.subhead}
                         </p>
                         <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 animate-fade-in-up delay-200 opacity-0" style={{ animationFillMode: 'forwards' }}>
-                            <button onClick={() => window.open(formUrl, '_blank')} className="group w-full sm:w-auto px-8 py-4 bg-[#0a0a0a] text-white rounded-full font-medium text-lg hover:bg-gray-800 transition-all flex items-center justify-center gap-2">
+                            <button onClick={() => {
+                                trackEvent('cta_click', {
+                                    cta_text: t.hero.cta.start,
+                                    cta_location: 'hero',
+                                    destination_url: formUrl,
+                                });
+                                window.open(formUrl, '_blank');
+                            }} className="group w-full sm:w-auto px-8 py-4 bg-[#0a0a0a] text-white rounded-full font-medium text-lg hover:bg-gray-800 transition-all flex items-center justify-center gap-2">
                                 {t.hero.cta.start}
                                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </button>
