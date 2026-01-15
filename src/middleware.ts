@@ -6,6 +6,13 @@ export function middleware(request: NextRequest) {
     const host = request.headers.get('host') || '';
     const pathname = url.pathname;
 
+    // 静的ファイル（画像、CSS、JS等）はmiddlewareをスキップして直接配信
+    const staticFileExtensions = ['.png', '.jpg', '.jpeg', '.gif', '.svg', '.webp', '.ico', '.css', '.js', '.json', '.xml', '.txt'];
+    const isStaticFile = staticFileExtensions.some(ext => pathname.toLowerCase().endsWith(ext));
+    if (isStaticFile) {
+        return NextResponse.next();
+    }
+
     // Guard for local development: Disable redirects on localhost/127.0.0.1/0.0.0.0
     if (
         host.includes('localhost') ||
