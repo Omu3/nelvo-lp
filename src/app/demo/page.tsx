@@ -47,11 +47,13 @@ function DemoContent() {
     // 画像パスを生成（絶対パス、先頭スラッシュ付き）
     // public/demo/{lang}/{imageName} を参照
     // lang は query の lang=en のときだけ en、それ以外は ja
+    // 必ず /demo/{lang}/{imageName} 形式で返す
     const getImagePath = (imageName: string): string => {
         // searchParamsから直接取得して確実に /demo/{lang}/{imageName} を返す
         const langParam = searchParams.get('lang');
         const lang = langParam === 'en' ? 'en' : 'ja';
-        const path = `${IMAGE_BASE_PATH}/${lang}/${imageName}`;
+        // 直接文字列で返して確実に /demo/ パスにする
+        const path = `/demo/${lang}/${imageName}`;
         
         // 開発時のみデバッグログ（クライアントサイド）
         if (typeof window !== 'undefined' && window.location.hostname === 'localhost') {
