@@ -6,26 +6,39 @@ import { Button } from './ui/Button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Globe } from 'lucide-react';
 import { getLocalizedPath, getBasePath, getLanguageFromPath } from '@/lib/url';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { trackEvent } from '@/lib/ga';
+import { Suspense } from 'react';
 
-export function Header() {
+function HeaderContent() {
     const { language, setLanguage, t } = useLanguage();
     const pathname = usePathname();
     const router = useRouter();
+    const searchParams = useSearchParams();
 
-    const formUrl = language === 'ja'
+    // デモページの場合はsearchParamsから言語を取得（SSRとクライアントで一致させるため）
+    const isDemoPage = pathname === '/demo';
+    const langFromQuery = isDemoPage ? searchParams.get('lang') : null;
+    const effectiveLanguage = (langFromQuery === 'ja' || langFromQuery === 'en') ? langFromQuery : language;
+
+    const formUrl = effectiveLanguage === 'ja'
         ? 'https://forms.gle/nwGEboEsGpD84R2u8'
         : 'https://forms.gle/SHyrFNxLrGZM1piU7';
 
     const toggleLanguage = () => {
-        const newLanguage = language === 'ja' ? 'en' : 'ja';
+        const newLanguage = effectiveLanguage === 'ja' ? 'en' : 'ja';
         
         // Cookieを先に更新
         document.cookie = `language=${newLanguage}; path=/; max-age=31536000`; // 1年
         
         // Contextを更新
         setLanguage(newLanguage);
+        
+        // デモページの場合はクエリパラメータを更新
+        if (isDemoPage) {
+            router.push(`/demo?lang=${newLanguage}`);
+            return;
+        }
         
         // 現在のパスを取得してベースパスに変換
         const basePath = getBasePath(pathname);
@@ -40,7 +53,7 @@ export function Header() {
     return (
         <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 sm:px-6 md:px-12 py-4 bg-white/50 backdrop-blur-sm border-b border-transparent transition-all duration-200">
             <div className="flex items-center gap-2">
-                <Link href={getLocalizedPath('/', language)} className="flex items-center gap-2 group">
+                <Link href={getLocalizedPath('/', effectiveLanguage)} className="flex items-center gap-2 group">
                     <Image
                         src="/logo.png"
                         alt="NELVO Logo"
@@ -53,10 +66,13 @@ export function Header() {
             </div>
 
             <nav className="hidden md:flex items-center gap-8">
-                <Link href={getLocalizedPath('/#product', language)} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+                <Link href={getLocalizedPath('/#product', effectiveLanguage)} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
                     Product
                 </Link>
-                <Link href={getLocalizedPath('/#pricing', language)} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+                <Link href={`/demo?lang=${effectiveLanguage}`} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+                    Demo
+                </Link>
+                <Link href={getLocalizedPath('/#pricing', effectiveLanguage)} className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
                     {t.header.pricing}
                 </Link>
                 <span className="text-sm font-medium text-gray-400 cursor-not-allowed opacity-60">
@@ -70,7 +86,7 @@ export function Header() {
                     className="flex items-center gap-1 text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
                 >
                     <Globe className="w-4 h-4" />
-                    {language === 'ja' ? 'JP' : 'EN'}
+                    {effectiveLanguage === 'ja' ? 'JP' : 'EN'}
                 </button>
                 <Button
                     variant="primary"
@@ -89,5 +105,22 @@ export function Header() {
                 </Button>
             </div>
         </header>
+    );
+}
+
+export function Header() {
+    return (
+        <Suspense fallback={
+            <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 sm:px-6 md:px-12 py-4 bg-white/50 backdrop-blur-sm border-b border-transparent">
+                <div className="flex items-center gap-2">
+                    <span className="font-bold text-lg md:text-xl tracking-tight text-gray-900">NELVO</span>
+                </div>
+                <div className="flex items-center gap-3 md:gap-4">
+                    <span className="text-sm font-medium text-gray-600">JP</span>
+                </div>
+            </header>
+        }>
+            <HeaderContent />
+        </Suspense>
     );
 }

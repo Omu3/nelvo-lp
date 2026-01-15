@@ -14,10 +14,17 @@ export const translations = {
                 highlight: "「全体像」を、",
                 part3: "ひとつの画面に。",
             },
-            subhead: "複数のツールに散らばった\n運営情報を、ひとつの視点でまとめて把握。\n\nNELVOは、日々の状況確認と意思決定を\n一画面で完結させる運営ダッシュボードです。",
+            subhead: "複数のツールに散らばった運営情報を、ひとつの視点でまとめて把握。NELVOは、日々の状況確認と意思決定を一画面で完結させる運営ダッシュボードです。",
+            subheadLines: [
+                "複数のツールに散らばった",
+                "運営情報を、ひとつの視点でまとめて把握。",
+                "NELVOは、日々の状況確認と意思決定を",
+                "一画面で完結させる運営ダッシュボードです。"
+            ],
             cta: {
                 start: "NELVO をはじめる",
-                demo: "プランを見る",
+                demo: "デモを見る",
+                demoNote: "画面を確認（サンプル・抜粋）",
             },
         },
         useCases: {
@@ -45,6 +52,22 @@ export const translations = {
             compatible: "現在は Discord / Stripe / YouTube / Instagram を中心に連携し、今後も順次対応プラットフォームを拡張予定です。",
             chart: {
                 retention: "継続率",
+            },
+        },
+        demoPage: {
+            title: "デモを見る",
+            subtitle: "実際の管理画面イメージ（サンプル）をご覧いただけます。",
+            sampleNote: "実際の管理画面の一部を、サンプルとしてご覧いただけます。※表示内容はデモ用の例です。",
+            disclaimer: "※表示している画面は一部です。正式版では、より多くの分析・設定項目を利用できます。",
+            screens: {
+                members: "メンバー一覧",
+                communities: "コミュニティ一覧",
+                today: "今日の概要",
+                analytics: "分析（継続率など）",
+                settings: "設定",
+            },
+            modal: {
+                of: "枚中",
             },
         },
         features: {
@@ -805,10 +828,17 @@ export const translations = {
                 highlight: "\"Big Picture\"",
                 part3: "in One View.",
             },
-            subhead: "Grasp operational info scattered across tools\nfrom a single, unified perspective.\n\nNELVO is the dashboard that completes your\ndaily checks and decisions in one screen.",
+            subhead: "Grasp operational info scattered across tools from a single, unified perspective. NELVO is the dashboard that completes your daily checks and decisions in one screen.",
+            subheadLines: [
+                "Grasp operational info scattered across tools",
+                "from a single, unified perspective.",
+                "NELVO is the dashboard that completes your",
+                "daily checks and decisions in one screen."
+            ],
             cta: {
                 start: "Start NELVO",
-                demo: "View Plans",
+                demo: "View demo",
+                demoNote: "View screens (sample selection)",
             },
         },
         useCases: {
@@ -837,6 +867,22 @@ export const translations = {
             compatible: "Currently focusing on integrations with Discord / Stripe / YouTube / Instagram, with plans to expand supported platforms sequentially.",
             chart: {
                 retention: "Retention Rate",
+            },
+        },
+        demoPage: {
+            title: "View Demo",
+            subtitle: "Explore sample screens of the dashboard experience.",
+            sampleNote: "Explore a few sample screens of the dashboard. Screens are for demonstration purposes.",
+            disclaimer: "Note: Screens shown here are a small selection. The full product includes more analytics and settings.",
+            screens: {
+                members: "Members",
+                communities: "Communities",
+                today: "Today overview",
+                analytics: "Analytics",
+                settings: "Settings",
+            },
+            modal: {
+                of: "of",
             },
         },
         features: {

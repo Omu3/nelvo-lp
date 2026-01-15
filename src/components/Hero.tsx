@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { ArrowRight, BarChart3, Users, CreditCard, Activity, Settings, Home, PieChart } from 'lucide-react';
 import { clsx } from 'clsx';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -60,10 +61,16 @@ export function Hero() {
                             </span><br />
                             {t.hero.headline.part3}
                         </h1>
-                        <p className="text-base sm:text-lg md:text-xl text-gray-500 mb-8 md:mb-10 leading-relaxed max-w-lg mx-auto lg:mx-0 animate-fade-in-up delay-100 opacity-0 whitespace-pre-line" style={{ animationFillMode: 'forwards' }}>
-                            {t.hero.subhead}
+                        <p className="text-base sm:text-lg md:text-xl text-gray-500 mb-8 md:mb-10 leading-[1.8] max-w-lg mx-auto lg:mx-0 animate-fade-in-up delay-100 opacity-0" style={{ animationFillMode: 'forwards' }}>
+                            {t.hero.subheadLines.map((line, index) => (
+                                <span key={index}>
+                                    {line}
+                                    {index < t.hero.subheadLines.length - 1 && <br />}
+                                </span>
+                            ))}
                         </p>
-                        <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 animate-fade-in-up delay-200 opacity-0" style={{ animationFillMode: 'forwards' }}>
+                        <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 sm:gap-5 animate-fade-in-up delay-200 opacity-0" style={{ animationFillMode: 'forwards' }}>
+                            {/* 主CTA */}
                             <button onClick={() => {
                                 trackEvent('cta_click', {
                                     cta_text: t.hero.cta.start,
@@ -71,13 +78,27 @@ export function Hero() {
                                     destination_url: formUrl,
                                 });
                                 window.open(formUrl, '_blank');
-                            }} className="group w-full sm:w-auto px-8 py-4 bg-[#0a0a0a] text-white rounded-full font-medium text-lg hover:bg-gray-800 transition-all flex items-center justify-center gap-2">
+                            }} className="group w-full sm:w-auto px-8 h-12 bg-[#0a0a0a] text-white rounded-full font-medium text-lg hover:bg-gray-700 hover:shadow-lg transition-all flex items-center justify-center gap-2">
                                 {t.hero.cta.start}
                                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </button>
-                            <button onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })} className="w-full sm:w-auto px-8 py-4 bg-white text-gray-600 border border-gray-200 rounded-full font-medium text-lg hover:bg-gray-50 transition-all">
-                                {t.hero.cta.demo}
-                            </button>
+                            
+                            {/* 副CTA */}
+                            <div className="flex flex-col items-center sm:items-start">
+                                <Link href={`/demo?lang=${language}`} onClick={() => {
+                                    trackEvent('cta_click', {
+                                        cta_id: 'hero_demo',
+                                        cta_label: t.hero.cta.demo,
+                                        locale: language,
+                                        page: 'lp_home',
+                                    });
+                                }} className="w-full sm:w-auto px-8 h-12 bg-white text-gray-600 border border-gray-200 rounded-full font-medium text-lg hover:bg-gray-100 hover:border-gray-300 transition-all flex items-center justify-center">
+                                    {t.hero.cta.demo}
+                                </Link>
+                                <span className="mt-1.5 text-xs text-gray-400 text-center sm:text-left">
+                                    {t.hero.cta.demoNote}
+                                </span>
+                            </div>
                         </div>
                     </div>
 
