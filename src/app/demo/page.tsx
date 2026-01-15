@@ -11,6 +11,9 @@ import { getLocalizedPath } from '@/lib/url';
 
 type ScreenKey = 'members' | 'communities' | 'today' | 'analytics' | 'settings';
 
+// 画像のベースパス（public/demo/{lang}/{imageName}）
+const IMAGE_BASE_PATH = '/demo';
+
 const screenList: { key: ScreenKey; imageName: string }[] = [
     { key: 'members', imageName: 'members.png' },
     { key: 'communities', imageName: 'communities.png' },
@@ -29,34 +32,26 @@ function DemoContent() {
     const errorLoggedRef = useRef<Set<string>>(new Set());
     const modalImageRef = useRef<HTMLImageElement>(null);
 
-    // クエリパラメータとLanguageContextを同期
+    // クエリパラメータから言語を取得（lang=en のときだけ en、それ以外は ja）
     useEffect(() => {
         const langParam = searchParams.get('lang');
-        // ja/en以外はjaにフォールバック
-        const validLang = (langParam === 'en' || langParam === 'ja') ? langParam : 'ja';
+        // lang=en のときだけ en、それ以外は ja
+        const validLang = langParam === 'en' ? 'en' : 'ja';
         
-        if (langParam === 'en' || langParam === 'ja') {
-            setCurrentLang(validLang);
-            setLanguage(validLang); // LanguageContextも更新
-            // Cookieを更新
-            document.cookie = `language=${validLang}; path=/; max-age=31536000`;
-        } else {
-            // クエリがない場合はLanguageContextの言語を使用、それもなければja
-            const fallbackLang = (language === 'en' || language === 'ja') ? language : 'ja';
-            setCurrentLang(fallbackLang);
-        }
-    }, [searchParams, language, setLanguage]);
-
-    // LanguageContextが変更されたらcurrentLangも更新
-    useEffect(() => {
-        const validLang = (language === 'en' || language === 'ja') ? language : 'ja';
         setCurrentLang(validLang);
-    }, [language]);
+        setLanguage(validLang); // LanguageContextも更新
+        // Cookieを更新
+        document.cookie = `language=${validLang}; path=/; max-age=31536000`;
+    }, [searchParams, setLanguage]);
 
     // 画像パスを生成（絶対パス、先頭スラッシュ付き）
+    // public/demo/{lang}/{imageName} を参照
+    // lang は query の lang=en のときだけ en、それ以外は ja
     const getImagePath = (imageName: string): string => {
-        const lang = (currentLang === 'en' || currentLang === 'ja') ? currentLang : 'ja';
-        const path = `/demo/${lang}/${imageName}`;
+        // searchParamsから直接取得して確実に /demo/{lang}/{imageName} を返す
+        const langParam = searchParams.get('lang');
+        const lang = langParam === 'en' ? 'en' : 'ja';
+        const path = `${IMAGE_BASE_PATH}/${lang}/${imageName}`;
         
         // 開発時のみデバッグログ（クライアントサイド）
         if (typeof window !== 'undefined' && window.location.hostname === 'localhost') {
