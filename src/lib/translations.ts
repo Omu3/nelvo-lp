@@ -811,6 +811,274 @@ export const translations = {
                 contactLabel: "お問い合わせ",
                 contactEmail: "support@nelvo.co",
             },
+            discordAnalytics: {
+                title: "Discord分析ツール | NELVO",
+                description: "Discordコミュニティのメンバー数、アクティブ率、継続率を可視化。NELVOでDiscordの運営状況を一元管理し、データに基づいたコミュニティ運営を実現します。",
+                h1Title: "Discord分析ツール",
+                sections: [
+                    {
+                        title: "Discordコミュニティの運営状況を可視化",
+                        content: "Discordサーバーのメンバー増減、アクティブ率、継続率を一画面で確認できます。複数のDiscordサーバーを統合管理し、成長と離脱の傾向を即座に把握できます。",
+                        details: [
+                            "メンバー数の推移を時系列でグラフ化し、成長期と停滞期を可視化",
+                            "アクティブ率と継続率を同時に確認し、コミュニティの健康度を評価",
+                            "複数サーバーの状況を横断比較し、運営戦略の効果を判断",
+                        ],
+                    },
+                    {
+                        title: "StripeやYouTubeと連携した包括的分析",
+                        content: "Discordのメンバー数とStripeの収益データ、YouTubeの視聴数を統合し、収益とコミュニティ成長の相関を分析します。",
+                        details: [
+                            "Discordメンバー数とMRR（月次経常収益）を同時に確認し、収益化の効率を評価",
+                            "YouTubeのチャンネル登録者数とDiscordの新規メンバー数を比較し、流入経路を分析",
+                            "継続率の低下と収益減少のタイミングを重ね合わせて、改善の優先順位を決定",
+                        ],
+                    },
+                ],
+                faq: {
+                    title: "よくある質問",
+                    items: [
+                        {
+                            q: "Discordのどのデータを取得できますか？",
+                            a: "Discordサーバーのメンバー数、アクティブメンバー数、新規参加者、離脱者などの基本データを取得します。DiscordのAPIを使用して安全に連携し、メンバー情報のプライバシーは保護されます。"
+                        },
+                        {
+                            q: "複数のDiscordサーバーを管理できますか？",
+                            a: "はい、複数のDiscordサーバーを同時に連携し、横断的な分析が可能です。各サーバーのメンバー数やアクティブ率を比較し、運営戦略の効果を評価できます。"
+                        },
+                        {
+                            q: "Discordと他のプラットフォームのデータを統合できますか？",
+                            a: "はい、DiscordのデータとStripe、YouTube、Instagramなどのデータを統合し、包括的な運営分析が可能です。収益とコミュニティ成長の相関を可視化できます。"
+                        },
+                    ],
+                },
+                footerCta: "Discord分析を始める",
+                footerCtaButton: "事前登録する",
+            },
+            youtubeAnalyticsForCreators: {
+                title: "YouTubeクリエイター向け分析 | NELVO",
+                description: "YouTubeチャンネルの登録者数、視聴回数、エンゲージメント率を可視化。NELVOでYouTubeデータと収益データを統合し、クリエイターの意思決定を支援します。",
+                h1Title: "YouTubeクリエイター向け分析",
+                sections: [
+                    {
+                        title: "YouTubeチャンネルの成長を可視化",
+                        content: "YouTubeチャンネルの登録者数、視聴回数、エンゲージメント率、平均視聴時間などを一画面で確認できます。動画パフォーマンスの傾向を把握し、コンテンツ戦略を最適化します。",
+                        details: [
+                            "登録者数の推移を時系列でグラフ化し、成長期と停滞期を可視化",
+                            "エンゲージメント率と視聴回数の相関を分析し、コンテンツ品質を評価",
+                            "複数のチャンネルを統合管理し、運営効率を向上",
+                        ],
+                    },
+                    {
+                        title: "収益データと統合した包括的分析",
+                        content: "YouTubeの視聴データとStripeの収益データ、Discordのコミュニティ成長を統合し、コンテンツ制作と収益化の効果を評価します。",
+                        details: [
+                            "YouTubeの登録者数とStripeのMRRを比較し、収益化の効率を分析",
+                            "動画のエンゲージメント率とメンバーシップ加入率の相関を可視化",
+                            "コンテンツ戦略の変更と収益変化のタイミングを重ね合わせて、最適化の方向性を決定",
+                        ],
+                    },
+                ],
+                faq: {
+                    title: "よくある質問",
+                    items: [
+                        {
+                            q: "YouTubeのどのデータを取得できますか？",
+                            a: "YouTubeチャンネルの登録者数、視聴回数、エンゲージメント率、平均視聴時間などの分析データを取得します。YouTube Data APIを使用して安全に連携します。"
+                        },
+                        {
+                            q: "複数のYouTubeチャンネルを管理できますか？",
+                            a: "はい、複数のYouTubeチャンネルを同時に連携し、横断的な分析が可能です。各チャンネルのパフォーマンスを比較し、コンテンツ戦略を最適化できます。"
+                        },
+                        {
+                            q: "YouTubeデータを収益データと統合できますか？",
+                            a: "はい、YouTubeの視聴データとStripeの収益データ、Discordのコミュニティ成長を統合し、包括的な分析が可能です。コンテンツ制作と収益化の効果を評価できます。"
+                        },
+                    ],
+                },
+                footerCta: "YouTube分析を始める",
+                footerCtaButton: "事前登録する",
+            },
+            stripeMrrDashboard: {
+                title: "Stripe MRRダッシュボード | NELVO",
+                description: "StripeのMRR（月次経常収益）、解約率、継続率を可視化。NELVOでStripeデータとコミュニティ成長を統合し、収益と成長の相関を分析します。",
+                h1Title: "Stripe MRRダッシュボード",
+                sections: [
+                    {
+                        title: "MRRと解約率をリアルタイムで追跡",
+                        content: "StripeのMRR（月次経常収益）、解約率、継続率、LTV（顧客生涯価値）などの収益指標を一画面で確認できます。収益の質を評価し、改善の優先順位を決定します。",
+                        details: [
+                            "MRRの推移を時系列でグラフ化し、成長率と停滞期を可視化",
+                            "解約率（churn rate）と継続率（retention rate）を同時に確認し、収益の質を評価",
+                            "セグメント別（Returning/VIP/At Risk）の収益パフォーマンスを比較",
+                        ],
+                    },
+                    {
+                        title: "コミュニティ成長と収益の相関を分析",
+                        content: "Stripeの収益データとDiscordのメンバー成長、YouTubeの視聴数を統合し、収益化戦略の効果を評価します。",
+                        details: [
+                            "Discordメンバー数の増加とMRRの成長率を比較し、収益化効率を分析",
+                            "YouTubeの視聴数とメンバーシップ加入率の相関を可視化",
+                            "継続率の低下と収益減少のタイミングを重ね合わせて、改善アクションを決定",
+                        ],
+                    },
+                ],
+                faq: {
+                    title: "よくある質問",
+                    items: [
+                        {
+                            q: "Stripeのどのデータを取得できますか？",
+                            a: "StripeのMRR、解約率、継続率、LTV、サブスクリプション情報などの収益データを取得します。Stripe APIを使用して安全に連携し、決済処理は行いません。"
+                        },
+                        {
+                            q: "複数のStripeアカウントを管理できますか？",
+                            a: "はい、複数のStripeアカウントを同時に連携し、横断的な収益分析が可能です。各アカウントのMRRや解約率を比較し、収益戦略を最適化できます。"
+                        },
+                        {
+                            q: "Stripeデータをコミュニティデータと統合できますか？",
+                            a: "はい、Stripeの収益データとDiscordのメンバー成長、YouTubeの視聴数などを統合し、包括的な運営分析が可能です。収益と成長の相関を可視化できます。"
+                        },
+                    ],
+                },
+                footerCta: "MRRダッシュボードを始める",
+                footerCtaButton: "事前登録する",
+            },
+            communityAnalyticsDashboard: {
+                title: "コミュニティ分析ダッシュボード | NELVO",
+                description: "Discord、YouTube、Instagramなど複数プラットフォームのコミュニティデータを統合し、包括的なコミュニティ分析を実現。NELVOでコミュニティの成長と収益を一画面で把握します。",
+                h1Title: "コミュニティ分析ダッシュボード",
+                sections: [
+                    {
+                        title: "複数プラットフォームのコミュニティデータを統合",
+                        content: "Discord、YouTube、Instagram、Stripeなど、複数のプラットフォームに分散したコミュニティデータを統合し、一画面で運営状況を把握できます。",
+                        details: [
+                            "Discordのメンバー数、YouTubeの登録者数、Instagramのフォロワー数を横並びで確認",
+                            "各プラットフォームのアクティブ率とエンゲージメント率を比較",
+                            "複数コミュニティの成長率を時系列でグラフ化",
+                        ],
+                    },
+                    {
+                        title: "コミュニティ成長と収益の相関を可視化",
+                        content: "コミュニティの成長指標（メンバー数、アクティブ率など）と収益指標（MRR、LTVなど）を統合し、運営戦略の効果を評価します。",
+                        details: [
+                            "メンバー数の増加とMRRの成長率を同時に確認し、収益化効率を分析",
+                            "継続率の低下と解約率の上昇のタイミングを重ね合わせて、改善の優先順位を決定",
+                            "セグメント別（新規/リピーター/VIP）のパフォーマンスを比較",
+                        ],
+                    },
+                ],
+                faq: {
+                    title: "よくある質問",
+                    items: [
+                        {
+                            q: "どのプラットフォームに対応していますか？",
+                            a: "現在は Discord、Stripe、YouTube、Instagram を中心に連携し、今後も順次対応プラットフォームを拡張予定です。各プラットフォームのAPIを使用して安全に連携します。"
+                        },
+                        {
+                            q: "複数のコミュニティを同時に管理できますか？",
+                            a: "はい、複数のコミュニティを同時に連携し、横断的な分析が可能です。各コミュニティの成長率や収益率を比較し、運営戦略を最適化できます。"
+                        },
+                        {
+                            q: "コミュニティデータと収益データを統合できますか？",
+                            a: "はい、Discordのメンバー成長やYouTubeの視聴数などのコミュニティデータと、Stripeの収益データを統合し、包括的な運営分析が可能です。"
+                        },
+                    ],
+                },
+                footerCta: "コミュニティ分析を始める",
+                footerCtaButton: "事前登録する",
+            },
+            membershipRetention: {
+                title: "メンバーシップ継続率分析 | NELVO",
+                description: "メンバーシップの継続率、解約率、離脱リスクを可視化。NELVOで継続率の推移を追跡し、メンバーシップ運営を最適化します。",
+                h1Title: "メンバーシップ継続率分析",
+                sections: [
+                    {
+                        title: "継続率と解約率を可視化",
+                        content: "メンバーシップの継続率（retention rate）と解約率（churn rate）を6ヶ月・12ヶ月単位で追跡し、離脱リスクを早期に検知します。セグメント別の継続率を比較し、改善の優先順位を決定します。",
+                        details: [
+                            "継続率の推移を時系列でグラフ化し、低下傾向を早期に検知",
+                            "解約率と継続率を同時に確認し、メンバーシップの健康度を評価",
+                            "セグメント別（新規/リピーター/VIP/At Risk）の継続率を比較",
+                        ],
+                    },
+                    {
+                        title: "離脱リスクの早期検知と対策",
+                        content: "アクティブ率の低下やエンゲージメント率の減少を継続率と重ね合わせて分析し、離脱リスクを早期に検知します。",
+                        details: [
+                            "アクティブ率の低下と継続率の減少のタイミングを重ね合わせて、離脱の兆候を早期発見",
+                            "エンゲージメント率の変化を継続率と関連付けて、改善アクションを決定",
+                            "At Riskセグメントのパフォーマンスを追跡し、離脱防止施策を優先",
+                        ],
+                    },
+                ],
+                faq: {
+                    title: "よくある質問",
+                    items: [
+                        {
+                            q: "継続率はどのように計算されますか？",
+                            a: "継続率（retention rate）は、特定の期間内にメンバーシップを維持しているメンバーの割合です。6ヶ月・12ヶ月単位で計算し、時系列での推移を可視化します。"
+                        },
+                        {
+                            q: "離脱リスクをどのように検知しますか？",
+                            a: "アクティブ率の低下、エンゲージメント率の減少、継続率の低下などの指標を統合し、離脱リスクを早期に検知します。At Riskセグメントを自動識別し、改善アクションを優先します。"
+                        },
+                        {
+                            q: "継続率の改善策を提案できますか？",
+                            a: "継続率が低下しているセグメントや期間を特定し、改善の優先順位を決定する手助けをします。具体的な改善策は、各コミュニティの状況に応じて検討してください。"
+                        },
+                    ],
+                },
+                footerCta: "継続率分析を始める",
+                footerCtaButton: "事前登録する",
+            },
+            compare: {
+                title: "NELVO vs 競合比較 | コミュニティ運営ダッシュボード",
+                description: "NELVOと他のコミュニティ運営ツールを比較。複数プラットフォームのデータ統合、MRR追跡、継続率分析などの機能を比較し、最適なツールを選択してください。",
+                h1Title: "NELVO vs 競合比較",
+                sections: [
+                    {
+                        title: "データ統合機能の比較",
+                        content: "NELVOはDiscord、Stripe、YouTube、Instagramなど複数プラットフォームのデータを統合し、一画面で運営状況を把握できます。他のツールと比較して、統合性と可視化の強みがあります。",
+                        details: [
+                            "複数プラットフォームのデータを横断的に統合し、手動集計を削減",
+                            "MRR、継続率、解約率などの収益指標を自動で可視化",
+                            "コミュニティ成長と収益の相関を一画面で確認",
+                        ],
+                    },
+                    {
+                        title: "分析機能と価格の比較",
+                        content: "NELVOは継続率分析、セグメント別パフォーマンス分析、コホート分析など高度な分析機能を提供。Basicプラン（月額¥2,980）とProプラン（月額¥6,980）の2プランを提供し、コミュニティの規模に応じて選択できます。",
+                        details: [
+                            "継続率の推移を6ヶ月・12ヶ月単位で可視化",
+                            "セグメント別（Returning/VIP/At Risk）パフォーマンス分析",
+                            "コホート分析（Retention Heatmap）で参加月×継続率を可視化",
+                        ],
+                    },
+                ],
+                faq: {
+                    title: "よくある質問",
+                    items: [
+                        {
+                            q: "NELVOと他のツールの主な違いは？",
+                            a: "NELVOは複数プラットフォームのデータを統合し、MRRや継続率などの収益指標を自動で可視化する点が強みです。コミュニティ成長と収益の相関を一画面で確認できるため、データドリブンな意思決定が可能です。"
+                        },
+                        {
+                            q: "料金プランはどのように選べばよいですか？",
+                            a: "Basicプランは小規模なコミュニティや、まずは試してみたい方向けです。ProプランはMRR追跡、継続率分析、セグメント分析など高度な分析機能が必要な方向けです。"
+                        },
+                        {
+                            q: "無料トライアルはありますか？",
+                            a: "現在は事前登録のみ受付中です。正式リリース時に優先的にご案内いたします。料金プランの詳細は価格ページをご確認ください。"
+                        },
+                        {
+                            q: "既存のツールから移行できますか？",
+                            a: "はい、NELVOは各プラットフォームのAPIを使用して安全に連携します。既存のデータを引き継ぐことはできませんが、連携後は自動でデータ同期が開始されます。"
+                        },
+                    ],
+                },
+                footerCta: "NELVOを始める",
+                footerCtaButton: "事前登録する",
+            },
         },
     },
     en: {
@@ -1631,6 +1899,274 @@ export const translations = {
                 ],
                 contactLabel: "Contact",
                 contactEmail: "support@nelvo.co",
+            },
+            discordAnalytics: {
+                title: "Discord Analytics Tool | NELVO",
+                description: "Visualize Discord community member count, active rate, and retention rate. Manage Discord operations in one unified dashboard with NELVO and make data-driven community decisions.",
+                h1Title: "Discord Analytics Tool",
+                sections: [
+                    {
+                        title: "Visualize Discord Community Operations",
+                        content: "Track member changes, active rate, and retention rate across Discord servers in one dashboard. Manage multiple Discord servers and instantly understand growth and churn trends.",
+                        details: [
+                            "Graph member count trends over time to visualize growth and stagnation periods",
+                            "Monitor active rate and retention rate simultaneously to assess community health",
+                            "Compare performance across multiple servers to evaluate operational strategy effectiveness",
+                        ],
+                    },
+                    {
+                        title: "Comprehensive Analytics with Stripe and YouTube Integration",
+                        content: "Integrate Discord member data with Stripe revenue and YouTube view counts to analyze the correlation between revenue and community growth.",
+                        details: [
+                            "Compare Discord member count with MRR (Monthly Recurring Revenue) to evaluate monetization efficiency",
+                            "Analyze traffic sources by comparing YouTube subscriber count with Discord new members",
+                            "Overlay retention decline with revenue drop timing to prioritize improvements",
+                        ],
+                    },
+                ],
+                faq: {
+                    title: "Frequently Asked Questions",
+                    items: [
+                        {
+                            q: "What Discord data can I access?",
+                            a: "We collect basic data such as member count, active members, new joiners, and leavers for your Discord server. We securely integrate using Discord's API, and member privacy is protected."
+                        },
+                        {
+                            q: "Can I manage multiple Discord servers?",
+                            a: "Yes, you can connect multiple Discord servers simultaneously for cross-server analysis. Compare member counts and active rates across servers to evaluate operational strategy effectiveness."
+                        },
+                        {
+                            q: "Can I integrate Discord data with other platforms?",
+                            a: "Yes, you can integrate Discord data with Stripe, YouTube, Instagram, and more for comprehensive operational analytics. Visualize the correlation between revenue and community growth."
+                        },
+                    ],
+                },
+                footerCta: "Start Discord Analytics",
+                footerCtaButton: "Join Waitlist",
+            },
+            youtubeAnalyticsForCreators: {
+                title: "YouTube Analytics for Creators | NELVO",
+                description: "Visualize YouTube channel subscribers, views, and engagement rates. Integrate YouTube data with revenue data using NELVO to support creator decision-making.",
+                h1Title: "YouTube Analytics for Creators",
+                sections: [
+                    {
+                        title: "Visualize YouTube Channel Growth",
+                        content: "View subscriber count, view counts, engagement rate, average watch time, and more in one dashboard. Understand video performance trends and optimize content strategy.",
+                        details: [
+                            "Graph subscriber trends over time to visualize growth and stagnation periods",
+                            "Analyze correlation between engagement rate and view counts to assess content quality",
+                            "Manage multiple channels centrally to improve operational efficiency",
+                        ],
+                    },
+                    {
+                        title: "Comprehensive Analytics Integrated with Revenue Data",
+                        content: "Integrate YouTube viewing data with Stripe revenue and Discord community growth to evaluate the effectiveness of content creation and monetization.",
+                        details: [
+                            "Compare YouTube subscribers with Stripe MRR to analyze monetization efficiency",
+                            "Visualize correlation between video engagement rate and membership sign-up rate",
+                            "Overlay content strategy changes with revenue changes to determine optimization direction",
+                        ],
+                    },
+                ],
+                faq: {
+                    title: "Frequently Asked Questions",
+                    items: [
+                        {
+                            q: "What YouTube data can I access?",
+                            a: "We collect analytics data such as subscriber count, view counts, engagement rate, and average watch time for your YouTube channel. We securely integrate using YouTube Data API."
+                        },
+                        {
+                            q: "Can I manage multiple YouTube channels?",
+                            a: "Yes, you can connect multiple YouTube channels simultaneously for cross-channel analysis. Compare performance across channels to optimize content strategy."
+                        },
+                        {
+                            q: "Can I integrate YouTube data with revenue data?",
+                            a: "Yes, you can integrate YouTube viewing data with Stripe revenue and Discord community growth for comprehensive analytics. Evaluate the effectiveness of content creation and monetization."
+                        },
+                    ],
+                },
+                footerCta: "Start YouTube Analytics",
+                footerCtaButton: "Join Waitlist",
+            },
+            stripeMrrDashboard: {
+                title: "Stripe MRR Dashboard | NELVO",
+                description: "Visualize Stripe MRR (Monthly Recurring Revenue), churn rate, and retention rate. Integrate Stripe data with community growth using NELVO to analyze the correlation between revenue and growth.",
+                h1Title: "Stripe MRR Dashboard",
+                sections: [
+                    {
+                        title: "Track MRR and Churn Rate in Real-Time",
+                        content: "View revenue metrics such as MRR, churn rate, retention rate, and LTV (Customer Lifetime Value) in one dashboard. Assess revenue quality and prioritize improvements.",
+                        details: [
+                            "Graph MRR trends over time to visualize growth and stagnation periods",
+                            "Monitor churn rate and retention rate simultaneously to assess revenue quality",
+                            "Compare revenue performance across segments (Returning/VIP/At Risk)",
+                        ],
+                    },
+                    {
+                        title: "Analyze Correlation Between Community Growth and Revenue",
+                        content: "Integrate Stripe revenue with Discord member growth and YouTube view counts to evaluate the effectiveness of monetization strategy.",
+                        details: [
+                            "Compare Discord member growth with MRR growth rate to analyze monetization efficiency",
+                            "Visualize correlation between YouTube views and membership sign-up rate",
+                            "Overlay retention decline with revenue drop timing to determine improvement actions",
+                        ],
+                    },
+                ],
+                faq: {
+                    title: "Frequently Asked Questions",
+                    items: [
+                        {
+                            q: "What Stripe data can I access?",
+                            a: "We collect revenue data such as MRR, churn rate, retention rate, LTV, and subscription information from Stripe. We securely integrate using Stripe API and do not process payments."
+                        },
+                        {
+                            q: "Can I manage multiple Stripe accounts?",
+                            a: "Yes, you can connect multiple Stripe accounts simultaneously for cross-account revenue analysis. Compare MRR and churn rate across accounts to optimize revenue strategy."
+                        },
+                        {
+                            q: "Can I integrate Stripe data with community data?",
+                            a: "Yes, you can integrate Stripe revenue with Discord member growth, YouTube view counts, and more for comprehensive operational analytics. Visualize the correlation between revenue and growth."
+                        },
+                    ],
+                },
+                footerCta: "Start MRR Dashboard",
+                footerCtaButton: "Join Waitlist",
+            },
+            communityAnalyticsDashboard: {
+                title: "Community Analytics Dashboard | NELVO",
+                description: "Integrate community data from Discord, YouTube, Instagram, and more for comprehensive community analytics. Understand community growth and revenue in one unified dashboard with NELVO.",
+                h1Title: "Community Analytics Dashboard",
+                sections: [
+                    {
+                        title: "Integrate Community Data from Multiple Platforms",
+                        content: "Integrate community data scattered across Discord, YouTube, Instagram, Stripe, and more to understand operational status in one dashboard.",
+                        details: [
+                            "View Discord members, YouTube subscribers, and Instagram followers side by side",
+                            "Compare active rate and engagement rate across platforms",
+                            "Graph growth rates across multiple communities over time",
+                        ],
+                    },
+                    {
+                        title: "Visualize Correlation Between Community Growth and Revenue",
+                        content: "Integrate community growth metrics (member count, active rate, etc.) with revenue metrics (MRR, LTV, etc.) to evaluate operational strategy effectiveness.",
+                        details: [
+                            "Compare member growth with MRR growth rate to analyze monetization efficiency",
+                            "Overlay retention decline with churn increase timing to prioritize improvements",
+                            "Compare performance across segments (New/Returner/VIP)",
+                        ],
+                    },
+                ],
+                faq: {
+                    title: "Frequently Asked Questions",
+                    items: [
+                        {
+                            q: "Which platforms are supported?",
+                            a: "We currently focus on integrations with Discord, Stripe, YouTube, and Instagram, with plans to expand supported platforms sequentially. We securely integrate using each platform's API."
+                        },
+                        {
+                            q: "Can I manage multiple communities simultaneously?",
+                            a: "Yes, you can connect multiple communities simultaneously for cross-community analysis. Compare growth rates and revenue rates across communities to optimize operational strategy."
+                        },
+                        {
+                            q: "Can I integrate community data with revenue data?",
+                            a: "Yes, you can integrate community data such as Discord member growth and YouTube view counts with Stripe revenue for comprehensive operational analytics."
+                        },
+                    ],
+                },
+                footerCta: "Start Community Analytics",
+                footerCtaButton: "Join Waitlist",
+            },
+            membershipRetention: {
+                title: "Membership Retention Analysis | NELVO",
+                description: "Visualize membership retention rate, churn rate, and churn risk. Track retention trends with NELVO to optimize membership operations.",
+                h1Title: "Membership Retention Analysis",
+                sections: [
+                    {
+                        title: "Visualize Retention and Churn Rates",
+                        content: "Track membership retention rate and churn rate over 6-month and 12-month periods to detect churn risk early. Compare retention rates across segments to prioritize improvements.",
+                        details: [
+                            "Graph retention trends over time to detect decline early",
+                            "Monitor churn rate and retention rate simultaneously to assess membership health",
+                            "Compare retention rates across segments (New/Returner/VIP/At Risk)",
+                        ],
+                    },
+                    {
+                        title: "Early Detection and Action for Churn Risk",
+                        content: "Overlay active rate decline and engagement rate reduction with retention analysis to detect churn risk early.",
+                        details: [
+                            "Overlay active rate decline timing with retention decline to detect churn early",
+                            "Correlate engagement rate changes with retention to determine improvement actions",
+                            "Track At Risk segment performance to prioritize churn prevention",
+                        ],
+                    },
+                ],
+                faq: {
+                    title: "Frequently Asked Questions",
+                    items: [
+                        {
+                            q: "How is retention rate calculated?",
+                            a: "Retention rate is the percentage of members who maintain their membership within a specific period. It's calculated over 6-month and 12-month periods, with trends visualized over time."
+                        },
+                        {
+                            q: "How is churn risk detected?",
+                            a: "We integrate metrics such as active rate decline, engagement rate reduction, and retention decline to detect churn risk early. At Risk segments are automatically identified and prioritized for improvement actions."
+                        },
+                        {
+                            q: "Can you suggest retention improvement strategies?",
+                            a: "We help identify segments or periods with declining retention to prioritize improvements. Specific improvement strategies should be considered based on each community's situation."
+                        },
+                    ],
+                },
+                footerCta: "Start Retention Analysis",
+                footerCtaButton: "Join Waitlist",
+            },
+            compare: {
+                title: "NELVO vs Competitors | Community Operations Dashboard Comparison",
+                description: "Compare NELVO with other community operations tools. Compare features such as multi-platform data integration, MRR tracking, and retention analysis to choose the best tool.",
+                h1Title: "NELVO vs Competitors",
+                sections: [
+                    {
+                        title: "Data Integration Feature Comparison",
+                        content: "NELVO integrates data from Discord, Stripe, YouTube, Instagram, and more to understand operational status in one dashboard. Compared to other tools, NELVO excels in integration and visualization.",
+                        details: [
+                            "Integrate data across multiple platforms horizontally to reduce manual aggregation",
+                            "Automatically visualize revenue metrics such as MRR, retention rate, and churn rate",
+                            "View correlation between community growth and revenue in one dashboard",
+                        ],
+                    },
+                    {
+                        title: "Analytics Features and Pricing Comparison",
+                        content: "NELVO provides advanced analytics features including retention analysis, segment performance analysis, and cohort analysis. We offer two plans: Basic ($15/month) and Pro ($49/month) to fit your community size.",
+                        details: [
+                            "Visualize retention trends over 6-month and 12-month periods",
+                            "Segment performance analysis (Returning/VIP/At Risk)",
+                            "Cohort analysis (Retention Heatmap) to visualize join month × retention rate",
+                        ],
+                    },
+                ],
+                faq: {
+                    title: "Frequently Asked Questions",
+                    items: [
+                        {
+                            q: "What are the main differences between NELVO and other tools?",
+                            a: "NELVO's strength lies in integrating data from multiple platforms and automatically visualizing revenue metrics such as MRR and retention rate. You can view the correlation between community growth and revenue in one dashboard, enabling data-driven decision-making."
+                        },
+                        {
+                            q: "How should I choose a pricing plan?",
+                            a: "The Basic plan is suitable for small communities or those who want to try it out. The Pro plan is for those who need advanced analytics features such as MRR tracking, retention analysis, and segment analysis."
+                        },
+                        {
+                            q: "Is there a free trial?",
+                            a: "We are currently accepting waitlist registrations only. We will notify you with priority when we officially launch. Please check the pricing page for plan details."
+                        },
+                        {
+                            q: "Can I migrate from existing tools?",
+                            a: "Yes, NELVO securely integrates using each platform's API. While we cannot migrate existing data, automatic data synchronization begins after connection."
+                        },
+                    ],
+                },
+                footerCta: "Get Started with NELVO",
+                footerCtaButton: "Join Waitlist",
             },
         },
     },

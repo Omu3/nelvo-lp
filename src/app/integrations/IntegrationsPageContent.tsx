@@ -163,9 +163,16 @@ export function IntegrationsPageContent() {
                 yellow: "bg-yellow-500",
               };
 
+              // 描画前に空要素を完全に除去
+              const cleanedDetails = (integration.details ?? []).filter((d): d is string => {
+                if (d == null || typeof d !== "string") return false;
+                // 全角/半角スペースのみを空として扱う
+                return d.replace(/\s+/g, "").length > 0;
+              });
+
               return (
                 <div key={index} id={integration.name.toLowerCase()} className="bg-white rounded-xl border border-gray-200 p-6 hover:shadow-md hover:border-gray-300 transition-all duration-200 scroll-mt-24 flex flex-col h-full">
-                  <div className="flex-1 flex flex-col">
+                  <div className="flex flex-col">
                     <div className="flex items-start gap-4 mb-3">
                       <div className={`p-2.5 rounded-lg ${colorClasses[color as keyof typeof colorClasses]} border flex-shrink-0`}>
                         <Icon className="w-5 h-5" />
@@ -181,14 +188,38 @@ export function IntegrationsPageContent() {
                     </div>
                   </div>
 
-                  <ul className="mt-6 space-y-3">
-                    {integration.details.map((detail, detailIndex) => (
-                      <li key={detailIndex} className="flex items-start gap-3">
-                        <span className={`mt-[9px] h-2 w-2 shrink-0 rounded-full ${bulletColorClasses[color as keyof typeof bulletColorClasses]}`} />
-                        <p className="text-sm leading-6 text-slate-700">{detail}</p>
-                      </li>
-                    ))}
-                  </ul>
+                  {cleanedDetails.length > 0 && (
+                    <ul className="mt-4 space-y-1.5 list-none p-0 m-0">
+                      {cleanedDetails.map((detail, idx) => (
+                        <li key={idx} className="flex items-start gap-2 my-0">
+                          <span className={`mt-[9px] h-2 w-2 shrink-0 rounded-full ${bulletColorClasses[color as keyof typeof bulletColorClasses]}`} />
+                          <p className="text-sm leading-5 text-slate-700 m-0">{detail}</p>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  {integration.name === 'Discord' && (
+                    <div className="mt-4 pt-4 border-t border-gray-200 relative z-10">
+                      <p className="text-sm text-gray-600">
+                        {language === 'ja' ? (
+                          <>Discord分析の詳細は<Link href={getLocalizedPath('/discord-analytics', language)} className="text-[#214BCE] hover:text-[#6C2BD9] font-medium underline underline-offset-2 relative z-10">Discord分析ツール</Link>のページをご覧ください。</>
+                        ) : (
+                          <>For Discord analytics details, see our <Link href={getLocalizedPath('/discord-analytics', language)} className="text-[#214BCE] hover:text-[#6C2BD9] font-medium underline underline-offset-2 relative z-10">Discord Analytics Tool</Link> page.</>
+                        )}
+                      </p>
+                    </div>
+                  )}
+                  {integration.name === 'YouTube' && (
+                    <div className="mt-4 pt-4 border-t border-gray-200 relative z-10">
+                      <p className="text-sm text-gray-600">
+                        {language === 'ja' ? (
+                          <>YouTubeクリエイター向け分析の詳細は<Link href={getLocalizedPath('/youtube-analytics-for-creators', language)} className="text-[#214BCE] hover:text-[#6C2BD9] font-medium underline underline-offset-2 relative z-10">YouTubeクリエイター向け分析</Link>のページをご覧ください。</>
+                        ) : (
+                          <>For YouTube creator analytics details, see our <Link href={getLocalizedPath('/youtube-analytics-for-creators', language)} className="text-[#214BCE] hover:text-[#6C2BD9] font-medium underline underline-offset-2 relative z-10">YouTube Analytics for Creators</Link> page.</>
+                        )}
+                      </p>
+                    </div>
+                  )}
                 </div>
               );
             })}

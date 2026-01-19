@@ -144,6 +144,13 @@ export function FeaturesPageContent() {
                 <p className="text-gray-600 leading-relaxed mb-4">
                   {pageT.analytics.description2}
                 </p>
+                <p className="text-gray-600 leading-relaxed mb-4">
+                  {language === 'ja' ? (
+                    <>Discord分析やコミュニティ分析ダッシュボードについては、<Link href={getLocalizedPath('/discord-analytics', language)} className="text-[#214BCE] hover:text-[#6C2BD9] font-medium underline underline-offset-2">Discord分析ツール</Link>や<Link href={getLocalizedPath('/community-analytics-dashboard', language)} className="text-[#214BCE] hover:text-[#6C2BD9] font-medium underline underline-offset-2">コミュニティ分析ダッシュボード</Link>のページをご覧ください。</>
+                  ) : (
+                    <>For Discord analytics and community analytics, see our <Link href={getLocalizedPath('/discord-analytics', language)} className="text-[#214BCE] hover:text-[#6C2BD9] font-medium underline underline-offset-2">Discord Analytics Tool</Link> and <Link href={getLocalizedPath('/community-analytics-dashboard', language)} className="text-[#214BCE] hover:text-[#6C2BD9] font-medium underline underline-offset-2">Community Analytics Dashboard</Link> pages.</>
+                  )}
+                </p>
               </div>
             </div>
 

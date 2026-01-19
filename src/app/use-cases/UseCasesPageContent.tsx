@@ -106,6 +106,17 @@ export function UseCasesPageContent() {
                         <p className="text-sm leading-6 text-slate-700">{detail}</p>
                       </div>
                     ))}
+                    {index === 0 && (
+                      <div className="mt-4 pt-4 border-t border-gray-200">
+                        <p className="text-sm text-gray-600">
+                          {language === 'ja' ? (
+                            <>継続率分析の詳細は<Link href={getLocalizedPath('/membership-retention', language)} className="text-[#214BCE] hover:text-[#6C2BD9] font-medium underline underline-offset-2">メンバーシップ継続率分析</Link>、統合ダッシュボードについては<Link href={getLocalizedPath('/community-analytics-dashboard', language)} className="text-[#214BCE] hover:text-[#6C2BD9] font-medium underline underline-offset-2">コミュニティ分析ダッシュボード</Link>をご覧ください。</>
+                          ) : (
+                            <>For retention analysis details, see our <Link href={getLocalizedPath('/membership-retention', language)} className="text-[#214BCE] hover:text-[#6C2BD9] font-medium underline underline-offset-2">Membership Retention Analysis</Link> page. For unified dashboard features, see our <Link href={getLocalizedPath('/community-analytics-dashboard', language)} className="text-[#214BCE] hover:text-[#6C2BD9] font-medium underline underline-offset-2">Community Analytics Dashboard</Link> page.</>
+                          )}
+                        </p>
+                      </div>
+                    )}
                   </div>
                 </div>
               );

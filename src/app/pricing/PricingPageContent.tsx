@@ -232,6 +232,15 @@ export function PricingPageContent() {
                 </h2>
                 <p className="text-gray-600 leading-relaxed mb-4">
                   {section.description}
+                  {index === 0 && (
+                    <>
+                      {' '}{language === 'ja' ? (
+                        <>StripeのMRR追跡については、<Link href={getLocalizedPath('/stripe-mrr-dashboard', language)} className="text-[#214BCE] hover:text-[#6C2BD9] font-medium underline underline-offset-2">Stripe MRRダッシュボード</Link>のページをご覧ください。料金プランの詳細比較は<Link href={getLocalizedPath('/compare', language)} className="text-[#214BCE] hover:text-[#6C2BD9] font-medium underline underline-offset-2">競合比較ページ</Link>を参照してください。</>
+                      ) : (
+                        <> For Stripe MRR tracking, see our <Link href={getLocalizedPath('/stripe-mrr-dashboard', language)} className="text-[#214BCE] hover:text-[#6C2BD9] font-medium underline underline-offset-2">Stripe MRR Dashboard</Link> page. For detailed pricing plan comparisons, see our <Link href={getLocalizedPath('/compare', language)} className="text-[#214BCE] hover:text-[#6C2BD9] font-medium underline underline-offset-2">comparison page</Link>.</>
+                      )}
+                    </>
+                  )}
                 </p>
                 <ul className="space-y-2.5">
                   {section.details.map((detail, detailIndex) => (

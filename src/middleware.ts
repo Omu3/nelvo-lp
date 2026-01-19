@@ -25,7 +25,11 @@ export function middleware(request: NextRequest) {
 
     // 1. 下層ページ（/features, /pricing, /en/features等）は最優先で処理
     // SEO上の安定性を優先するため、下層ページでのAccept-LanguageやCookieによるリダイレクトは一切行わない
-    const seoPages = ['/features', '/pricing', '/use-cases', '/integrations', '/faq', '/status', '/privacy-policy', '/terms', '/demo'];
+    const seoPages = [
+        '/features', '/pricing', '/use-cases', '/integrations', '/faq', '/status', '/privacy-policy', '/terms', '/demo',
+        '/discord-analytics', '/youtube-analytics-for-creators', '/stripe-mrr-dashboard',
+        '/community-analytics-dashboard', '/membership-retention', '/compare'
+    ];
     const isSeoPage = seoPages.some(page => pathname === page || pathname === `/en${page}`);
     
     if (isSeoPage) {
@@ -103,7 +107,11 @@ export function middleware(request: NextRequest) {
     const allowedPaths = [
         '/', '/en',
         '/features', '/pricing', '/use-cases', '/integrations', '/faq', '/status', '/privacy-policy', '/terms', '/demo',
-        '/en/features', '/en/pricing', '/en/use-cases', '/en/integrations', '/en/faq', '/en/status', '/en/privacy-policy', '/en/terms', '/en/demo'
+        '/discord-analytics', '/youtube-analytics-for-creators', '/stripe-mrr-dashboard',
+        '/community-analytics-dashboard', '/membership-retention', '/compare',
+        '/en/features', '/en/pricing', '/en/use-cases', '/en/integrations', '/en/faq', '/en/status', '/en/privacy-policy', '/en/terms', '/en/demo',
+        '/en/discord-analytics', '/en/youtube-analytics-for-creators', '/en/stripe-mrr-dashboard',
+        '/en/community-analytics-dashboard', '/en/membership-retention', '/en/compare'
     ];
     // 未知のパスは / にリダイレクト（404を避ける）
     if (!allowedPaths.includes(pathname) && !pathname.startsWith('/en/')) {

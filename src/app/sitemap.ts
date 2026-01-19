@@ -112,5 +112,77 @@ export default function sitemap(): MetadataRoute.Sitemap {
           changeFrequency: "monthly",
           priority: 0.5,
         },
+        {
+          url: "https://nelvo.co/discord-analytics",
+          lastModified: now,
+          changeFrequency: "weekly",
+          priority: 0.8,
+        },
+        {
+          url: "https://nelvo.co/en/discord-analytics",
+          lastModified: now,
+          changeFrequency: "weekly",
+          priority: 0.8,
+        },
+        {
+          url: "https://nelvo.co/youtube-analytics-for-creators",
+          lastModified: now,
+          changeFrequency: "weekly",
+          priority: 0.8,
+        },
+        {
+          url: "https://nelvo.co/en/youtube-analytics-for-creators",
+          lastModified: now,
+          changeFrequency: "weekly",
+          priority: 0.8,
+        },
+        {
+          url: "https://nelvo.co/stripe-mrr-dashboard",
+          lastModified: now,
+          changeFrequency: "weekly",
+          priority: 0.8,
+        },
+        {
+          url: "https://nelvo.co/en/stripe-mrr-dashboard",
+          lastModified: now,
+          changeFrequency: "weekly",
+          priority: 0.8,
+        },
+        {
+          url: "https://nelvo.co/community-analytics-dashboard",
+          lastModified: now,
+          changeFrequency: "weekly",
+          priority: 0.8,
+        },
+        {
+          url: "https://nelvo.co/en/community-analytics-dashboard",
+          lastModified: now,
+          changeFrequency: "weekly",
+          priority: 0.8,
+        },
+        {
+          url: "https://nelvo.co/membership-retention",
+          lastModified: now,
+          changeFrequency: "weekly",
+          priority: 0.8,
+        },
+        {
+          url: "https://nelvo.co/en/membership-retention",
+          lastModified: now,
+          changeFrequency: "weekly",
+          priority: 0.8,
+        },
+        {
+          url: "https://nelvo.co/compare",
+          lastModified: now,
+          changeFrequency: "weekly",
+          priority: 0.8,
+        },
+        {
+          url: "https://nelvo.co/en/compare",
+          lastModified: now,
+          changeFrequency: "weekly",
+          priority: 0.8,
+        },
       ];
     }
